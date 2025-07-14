@@ -52,12 +52,54 @@ const App = () => (
           <PaxisAuthProvider>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/commons" element={<Commons />} />
-              <Route path="/mediation" element={<Mediation />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/governance" element={<Governance />} />
-              <Route path="/peacecoin" element={<PeaceCoin />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Dashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/commons"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Commons />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/mediation"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Mediation />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/education"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Education />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/governance"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Governance />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/peacecoin"
+                element={
+                  <ProtectedPaxisRoute>
+                    <PeaceCoin />
+                  </ProtectedPaxisRoute>
+                }
+              />
               <Route path="/security" element={<Security />} />
               <Route path="/pilot" element={<Pilot />} />
               <Route path="/vr-labs" element={<VRLabs />} />
