@@ -173,6 +173,29 @@ const PricingPage = () => {
     }
   };
 
+  const handleUpgradeTier = (tier: any) => {
+    if (!isAuthenticated) {
+      // Redirect to login if not authenticated
+      window.location.href = "/login";
+      return;
+    }
+
+    if (tier.id === "free") {
+      // Free tier - just redirect to dashboard
+      window.location.href = "/dashboard";
+      return;
+    }
+
+    // Open payment modal for paid tiers
+    setSelectedTier(tier);
+    setIsPaymentModalOpen(true);
+  };
+
+  const closePaymentModal = () => {
+    setIsPaymentModalOpen(false);
+    setSelectedTier(null);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* Navigation */}
