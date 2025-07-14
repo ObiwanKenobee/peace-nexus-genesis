@@ -676,6 +676,8 @@ export const EmpathyLab: React.FC<EmpathyLabProps> = ({
                   Enter VR Mode
                 </Button>
               )}
+
+              <div id="vr-button-container" className="hidden"></div>
             </div>
           </CardContent>
         </Card>
