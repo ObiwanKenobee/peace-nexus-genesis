@@ -13,6 +13,16 @@ import AdminAccess from "@/components/AdminAccess";
 import { usePaxisAuth } from "@/contexts/PaxisAuthContext";
 
 const Index = () => {
+  const { user } = usePaxisAuth();
+  const navigate = useNavigate();
+
+  const handleProtectedNavigation = (path: string) => {
+    if (!user) {
+      navigate("/login");
+    } else {
+      navigate(path);
+    }
+  };
   const features = [
     {
       icon: Shield,
