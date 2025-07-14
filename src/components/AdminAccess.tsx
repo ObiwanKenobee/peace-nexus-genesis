@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Settings, User, Heart } from "lucide-react";
+import { Settings, User, Heart, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePaxisAuth } from "@/contexts/PaxisAuthContext";
 
