@@ -34,6 +34,8 @@ const App = () => (
           <Route path="/peacecoin" element={<PeaceCoin />} />
           <Route path="/security" element={<Security />} />
           <Route path="/pilot" element={<Pilot />} />
+          <Route path="/vr-labs" element={<VRLabs />} />
+          <Route path="/ai-agents" element={<AIAgents />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
