@@ -1,73 +1,133 @@
-# Welcome to your Lovable project
+# 🕊️ PAXIS: The Peacetech Ecosystem
 
-## Project info
+> **“Peace is not the silence of guns — it is the symphony of trust, transparency, and tech.”**  
+> — *PAXIS Vision Paper*
 
-**URL**: https://lovable.dev/projects/de36681e-c1fe-4a38-ac93-46582d657d98
+---
 
-## How can I edit this code?
+## ✨ What is PAXIS?
 
-There are several ways of editing your application.
+**PAXIS** (Latin *Pax* = peace, *Axis* = spine) is an open-source, full-stack ecosystem built to engineer **positive peace** through technology — replacing global conflict infrastructure with **trust-driven systems** for:
 
-**Use Lovable**
+- 🌍 Disarmament & conflict de-escalation  
+- ⚡ Shared energy, food, and water commons  
+- 🧠 AI-guided mediation & consensus  
+- 🗳️ Community-owned governance via DAO  
+- 🎭 Culture-driven empathy & peace education
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/de36681e-c1fe-4a38-ac93-46582d657d98) and start prompting.
+PAXIS isn't a platform. It's a **movement encoded in software** — merging frontier tech, ancient wisdom, and civic imagination.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🧱 Core Modules
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Module | Description |
+|--------|-------------|
+| `paxis-core-api` | Backend API (NestJS/GraphQL) for all core services |
+| `paxis-web` | Frontend dashboard (Next.js + TailwindCSS) |
+| `paxis-peacecoin` | Smart contracts for PeaceCoin (ERC-20 + DAO logic) |
+| `paxis-ai` | AI agents for conflict resolution, translation, and peace signal detection |
+| `paxis-vr` | Immersive empathy labs (Three.js / WebXR) |
+| `paxis-ledger` | Blockchain integration (Polygon/Substrate) for disarmament & commons |
+| `paxis-oracle` | IoT & satellite integration for resource tracking and alerts |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🧬 The Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 🔧 Backend  
+- `NestJS`, `GraphQL`, `PostgreSQL`, `Redis`, `IPFS`
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 💡 AI Layer  
+- Fine-tuned `LLMs` (mediation, multilingual NLP, sentiment detection)  
+- `Whisper`, `spaCy`, `HuggingFace Transformers`
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🌍 Blockchain  
+- `Polygon`, `Hardhat`, `OpenZeppelin`, `IPFS`, `The Graph`  
+- DAO governance using `Governor`, `Timelock`, `Snapshot`
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### 💻 Frontend  
+- `Next.js`, `TailwindCSS`, `Ethers.js`, `RainbowKit`, `TypeScript`
 
-**Edit a file directly in GitHub**
+### 🛰️ Data & Sensing  
+- `Apache Kafka`, `OpenStreetMap`, `SentinelHub`, `LoRa`, `MQTT`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🚀 Use Cases
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- ✅ **De-escalate Border Conflicts** with AI-powered neutral mediation agents  
+- ✅ **Tokenize Peace Actions** — earn `PeaceCoin` for disarmament, dialogue, cooperation  
+- ✅ **Run a Peace DAO** — citizens, NGOs, and governments co-govern resources  
+- ✅ **Host VR Peace Labs** to teach history, empathy, and reconciliation  
+- ✅ **Redistribute Energy/Water** through commons ledgers and satellite-informed smart contracts
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🛡️ Ethos & Principles
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- 🔓 100% Open Source  
+- 🤝 Community-Governed  
+- 🧠 Transparent AI  
+- 🧘‍♂️ Nonviolent by Design  
+- 🪶 Culturally Sovereign  
+- 🔒 Quantum-safe Privacy  
+- 🌍 Indigenous-Aware & Planet-Centric
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/de36681e-c1fe-4a38-ac93-46582d657d98) and click on Share -> Publish.
+## 🗺️ Roadmap
 
-## Can I connect a custom domain to my Lovable project?
+| Quarter | Milestone |
+|---------|-----------|
+| Q3 2025 | PeaceCoin contract + DAO MVP 🚀  
+| Q4 2025 | PAXIS Web App + Disarmament Ledger v1  
+| Q1 2026 | Peace Signal AI + Conflict Mediation Agent  
+| Q2 2026 | Commons Exchange for energy & water  
+| Q3 2026 | VR Empathy Labs + Curriculum SDK  
+| Q4 2026 | Launch pilots in 3 global regions (Africa, MENA, Asia)
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🤖 Contribute to PAXIS
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+> Peace is a protocol. Let’s write it together.
+
+### 🌱 Beginner? Start here:
+- Fork the repo  
+- Try `/paxis-web` and run locally  
+- Explore `/paxis-peacecoin` and learn about smart contracts  
+- Read the [`/docs/whitepaper.md`](./docs/whitepaper.md) and [`/docs/dao-governance.md`](./docs/dao-governance.md)
+
+### 🧙‍♀️ Experienced? Help us:
+- Build AI modules for de-escalation  
+- Expand internationalization (i18n) for peace tools  
+- Integrate conflict datasets  
+- Audit our smart contracts  
+- Add native mobile versions
+
+---
+
+## 🔐 License
+
+`MIT` for code.  
+`CC BY-SA 4.0` for peace protocols, datasets, and educational assets.
+
+---
+
+## 👣 Join the Peace Stack
+
+- 🌐 [Website](https://paxis.global) (coming soon)
+- 🐦 [@PaxisDAO](https://twitter.com/paxisdao)
+- 💬 [Discord](https://discord.gg/paxis)
+- 📜 [Whitepaper](./docs/whitepaper.md)
+- 🧭 [DAO Governance Docs](./docs/dao-governance.md)
+
+---
+
+## 🦁 Created by Wild Panther  
+With code, fire, and a vision to end war forever.
+
+> “Make peace not because we’re weak — but because we’ve grown strong enough to build better systems.”  
+> — *Panther*
+
