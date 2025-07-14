@@ -106,15 +106,27 @@ const App = () => (
               {/* Archetype-specific dashboards */}
               <Route
                 path="/dashboard/peace-architect"
-                element={<PeaceArchitectDashboard />}
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="peace_architect">
+                    <PeaceArchitectDashboard />
+                  </ProtectedPaxisRoute>
+                }
               />
               <Route
                 path="/dashboard/tech-diplomat"
-                element={<TechDiplomatDashboard />}
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="tech_diplomat">
+                    <TechDiplomatDashboard />
+                  </ProtectedPaxisRoute>
+                }
               />
               <Route
                 path="/dashboard/grassroots"
-                element={<GrassrootsDashboard />}
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="grassroots_peacebuilder">
+                    <GrassrootsDashboard />
+                  </ProtectedPaxisRoute>
+                }
               />
 
               {/* Admin Login Route */}
