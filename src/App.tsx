@@ -43,6 +43,15 @@ const App = () => (
           <Route path="/pilot" element={<Pilot />} />
           <Route path="/vr-labs" element={<VRLabs />} />
           <Route path="/ai-agents" element={<AIAgents />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="platform" element={<PlatformManagement />} />
+            <Route path="seo" element={<SEODashboard />} />
+            <Route path="global" element={<GlobalSettings />} />
+          </Route>
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
