@@ -645,9 +645,36 @@ export const EmpathyLab: React.FC<EmpathyLabProps> = ({
 
               {/* VR Button */}
               {isVRSupported && (
-                <div id="vr-button-container" className="flex justify-center">
-                  {/* VR Button will be inserted here by Three.js */}
-                </div>
+                <Button
+                  onClick={() => {
+                    if (rendererRef.current && containerRef.current) {
+                      const vrButton = VRButton.createButton(
+                        rendererRef.current,
+                      );
+                      vrButton.style.position = "relative";
+                      vrButton.style.width = "100%";
+                      vrButton.style.height = "40px";
+                      vrButton.style.backgroundColor = "#4A90E2";
+                      vrButton.style.border = "none";
+                      vrButton.style.borderRadius = "6px";
+                      vrButton.style.color = "white";
+                      vrButton.style.fontSize = "14px";
+                      vrButton.style.cursor = "pointer";
+                      const buttonContainer = document.getElementById(
+                        "vr-button-container",
+                      );
+                      if (buttonContainer) {
+                        buttonContainer.innerHTML = "";
+                        buttonContainer.appendChild(vrButton);
+                      }
+                    }
+                  }}
+                  className="w-full"
+                  variant="default"
+                >
+                  <Headphones className="h-4 w-4 mr-2" />
+                  Enter VR Mode
+                </Button>
               )}
             </div>
           </CardContent>
