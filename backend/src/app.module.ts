@@ -101,6 +101,7 @@ import { PaymentModule } from "./payment/payment.module";
     BlockchainModule,
     NotificationsModule,
     AnalyticsModule,
+    PaymentModule,
   ],
 })
 export class AppModule {}
