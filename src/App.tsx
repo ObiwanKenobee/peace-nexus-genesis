@@ -37,6 +37,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AdminAuthProvider>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -46,7 +47,7 @@ const App = () => (
           <Route path="/governance" element={<Governance />} />
           <Route path="/peacecoin" element={<PeaceCoin />} />
           <Route path="/security" element={<Security />} />
-          <Route path="/pilot" element={<Pilot />} />
+                    <Route path="/pilot" element={<Pilot />} />
           <Route path="/vr-labs" element={<VRLabs />} />
           <Route path="/ai-agents" element={<AIAgents />} />
 
