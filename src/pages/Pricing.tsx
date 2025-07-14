@@ -24,6 +24,7 @@ import {
   Lock,
   Eye,
   PiggyBank,
+  Clock,
 } from "lucide-react";
 
 const PricingPage = () => {
