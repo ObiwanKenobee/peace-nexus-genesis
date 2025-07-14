@@ -22,6 +22,12 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import SEODashboard from "./pages/admin/SEODashboard";
 import PlatformManagement from "./pages/admin/PlatformManagement";
 import GlobalSettings from "./pages/admin/GlobalSettings";
+import UserManagement from "./pages/admin/UserManagement";
+import Analytics from "./pages/admin/Analytics";
+import SecurityManagement from "./pages/admin/SecurityManagement";
+import AdminLogin from "./pages/admin/AdminLogin";
+import ProtectedAdminRoute from "./components/admin/ProtectedAdminRoute";
+import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 
 const queryClient = new QueryClient();
 
