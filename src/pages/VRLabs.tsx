@@ -25,7 +25,7 @@ import {
   Globe,
   Star,
   Clock,
-  VrHeadset,
+  Headphones,
   Monitor,
   Settings,
   Award,
