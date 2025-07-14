@@ -60,7 +60,16 @@ const App = () => (
           <Route path="/vr-labs" element={<VRLabs />} />
           <Route path="/ai-agents" element={<AIAgents />} />
 
-                    {/* Admin Login Route */}
+                              {/* PAXIS User Authentication */}
+          <Route path="/login" element={<PaxisLogin />} />
+          <Route path="/dashboard" element={<DashboardRouter />} />
+
+          {/* Archetype-specific dashboards */}
+          <Route path="/dashboard/peace-architect" element={<PeaceArchitectDashboard />} />
+          <Route path="/dashboard/tech-diplomat" element={<TechDiplomatDashboard />} />
+          <Route path="/dashboard/grassroots" element={<GrassrootsDashboard />} />
+
+          {/* Admin Login Route */}
           <Route path="/admin/login" element={<AdminLogin />} />
 
           {/* Protected Admin Routes */}
