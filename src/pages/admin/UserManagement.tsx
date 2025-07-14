@@ -214,7 +214,9 @@ export default function UserManagement() {
   const handleStatusChange = (userId: string, newStatus: string) => {
     setUsers(
       users.map((user) =>
-        user.id === userId ? { ...user, status: newStatus as any } : user,
+        user.id === userId
+          ? { ...user, status: newStatus as User["status"] }
+          : user,
       ),
     );
   };
@@ -222,7 +224,7 @@ export default function UserManagement() {
   const handleRoleChange = (userId: string, newRole: string) => {
     setUsers(
       users.map((user) =>
-        user.id === userId ? { ...user, role: newRole as any } : user,
+        user.id === userId ? { ...user, role: newRole as User["role"] } : user,
       ),
     );
   };
