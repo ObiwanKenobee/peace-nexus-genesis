@@ -102,7 +102,6 @@ const App = () => (
               <Route path="/login" element={<PaxisLogin />} />
               <Route path="/archetypes" element={<Archetypes />} />
               <Route path="/pricing" element={<Pricing />} />
-              <Route path="/user-dashboard" element={<DashboardRouter />} />
 
               {/* Archetype-specific dashboards */}
               <Route
