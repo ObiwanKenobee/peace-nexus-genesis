@@ -99,6 +99,16 @@ export default function PaxisLogin() {
   const [error, setError] = useState("");
   const { login, register, isLoading } = usePaxisAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Handle pre-selected archetype from archetypes page
+  useEffect(() => {
+    const selectedArchetype = location.state?.selectedArchetype;
+    if (selectedArchetype) {
+      setRegisterData((prev) => ({ ...prev, archetype: selectedArchetype }));
+      setActiveTab("register");
+    }
+  }, [location.state]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
