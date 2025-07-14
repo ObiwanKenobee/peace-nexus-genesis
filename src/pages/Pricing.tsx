@@ -349,12 +349,10 @@ const PricingPage = () => {
                   <Button
                     className={`w-full ${tier.popular ? "bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600" : ""}`}
                     variant={tier.popular ? "default" : "outline"}
-                    asChild
+                    onClick={() => handleUpgradeTier(tier)}
                   >
-                    <Link to={tier.id === "free" ? "/login" : "/login"}>
-                      {tier.cta}
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
+                    {tier.cta}
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
 
                   <p className="text-xs text-gray-500 mt-3">
