@@ -38,6 +38,7 @@ import PeaceArchitectDashboard from "./pages/dashboards/PeaceArchitectDashboard"
 import TechDiplomatDashboard from "./pages/dashboards/TechDiplomatDashboard";
 import GrassrootsDashboard from "./pages/dashboards/GrassrootsDashboard";
 import { PaxisAuthProvider } from "./contexts/PaxisAuthContext";
+import ProtectedPaxisRoute from "./components/ProtectedPaxisRoute";
 
 const queryClient = new QueryClient();
 
