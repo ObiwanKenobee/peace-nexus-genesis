@@ -12,6 +12,8 @@ import Governance from "./pages/Governance";
 import PeaceCoin from "./pages/PeaceCoin";
 import Security from "./pages/Security";
 import Pilot from "./pages/Pilot";
+import VRLabs from "./pages/VRLabs";
+import AIAgents from "./pages/AIAgents";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,8 @@ const App = () => (
           <Route path="/peacecoin" element={<PeaceCoin />} />
           <Route path="/security" element={<Security />} />
           <Route path="/pilot" element={<Pilot />} />
+          <Route path="/vr-labs" element={<VRLabs />} />
+          <Route path="/ai-agents" element={<AIAgents />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
