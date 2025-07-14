@@ -9,6 +9,8 @@ import Commons from "./pages/Commons";
 import Mediation from "./pages/Mediation";
 import Education from "./pages/Education";
 import Governance from "./pages/Governance";
+import PeaceCoin from "./pages/PeaceCoin";
+import Security from "./pages/Security";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/mediation" element={<Mediation />} />
           <Route path="/education" element={<Education />} />
           <Route path="/governance" element={<Governance />} />
+          <Route path="/peacecoin" element={<PeaceCoin />} />
+          <Route path="/security" element={<Security />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
