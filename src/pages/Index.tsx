@@ -333,44 +333,44 @@ const Index = () => {
               <h3 className="font-semibold mb-4">Platform</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link
-                    to="/dashboard"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/dashboard")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     Dashboard
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    to="/commons"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/commons")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     Resource Commons
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    to="/mediation"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/mediation")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     Mediation
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    to="/education"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/education")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     Education
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    to="/peacecoin"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/peacecoin")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     PeaceCoin
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
