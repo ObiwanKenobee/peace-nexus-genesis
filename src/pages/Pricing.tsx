@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 import { Link } from "react-router-dom";
+import PaymentModal from "@/components/payment/PaymentModal";
+import { usePaxisAuth } from "@/contexts/PaxisAuthContext";
 import {
   Globe,
   Heart,
