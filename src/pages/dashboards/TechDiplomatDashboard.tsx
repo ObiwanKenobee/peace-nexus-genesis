@@ -429,7 +429,7 @@ export default function TechDiplomatDashboard() {
                         {project.stars}
                       </span>
                       <span className="flex items-center">
-                        <Fork className="w-4 h-4 mr-1" />
+                        <GitFork className="w-4 h-4 mr-1" />
                         {project.forks}
                       </span>
                       <span>{project.language}</span>
