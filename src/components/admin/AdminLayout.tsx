@@ -68,6 +68,7 @@ const adminNavItems = [
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const location = useLocation();
+  const { user, logout } = useAdminAuth();
 
   return (
     <div className="flex h-screen bg-gray-50">
