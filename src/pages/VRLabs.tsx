@@ -381,7 +381,7 @@ const VRLabs = () => {
                       </div>
                     </div>
                     <CardTitle className="text-lg flex items-center gap-2">
-                      <VrHeadset className="h-5 w-5 text-purple-600" />
+                      <Headphones className="h-5 w-5 text-purple-600" />
                       {experience.title}
                     </CardTitle>
                     <CardDescription>{experience.description}</CardDescription>
