@@ -25,7 +25,6 @@ import {
   Globe,
   Star,
   Clock,
-  Headphones,
   Monitor,
   Settings,
   Award,
