@@ -29,6 +29,14 @@ import AdminLogin from "./pages/admin/AdminLogin";
 import ProtectedAdminRoute from "./components/admin/ProtectedAdminRoute";
 import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 
+// PAXIS User System
+import PaxisLogin from "./pages/PaxisLogin";
+import DashboardRouter from "./pages/DashboardRouter";
+import PeaceArchitectDashboard from "./pages/dashboards/PeaceArchitectDashboard";
+import TechDiplomatDashboard from "./pages/dashboards/TechDiplomatDashboard";
+import GrassrootsDashboard from "./pages/dashboards/GrassrootsDashboard";
+import { PaxisAuthProvider } from "./contexts/PaxisAuthContext";
+
 const queryClient = new QueryClient();
 
 const App = () => (
