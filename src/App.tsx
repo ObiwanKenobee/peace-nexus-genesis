@@ -16,6 +16,13 @@ import VRLabs from "./pages/VRLabs";
 import AIAgents from "./pages/AIAgents";
 import NotFound from "./pages/NotFound";
 
+// Admin components
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import SEODashboard from "./pages/admin/SEODashboard";
+import PlatformManagement from "./pages/admin/PlatformManagement";
+import GlobalSettings from "./pages/admin/GlobalSettings";
+
 const queryClient = new QueryClient();
 
 const App = () => (
