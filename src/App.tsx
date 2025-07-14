@@ -33,6 +33,7 @@ import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 import PaxisLogin from "./pages/PaxisLogin";
 import DashboardRouter from "./pages/DashboardRouter";
 import Archetypes from "./pages/Archetypes";
+import Pricing from "./pages/Pricing";
 import PeaceArchitectDashboard from "./pages/dashboards/PeaceArchitectDashboard";
 import TechDiplomatDashboard from "./pages/dashboards/TechDiplomatDashboard";
 import GrassrootsDashboard from "./pages/dashboards/GrassrootsDashboard";
