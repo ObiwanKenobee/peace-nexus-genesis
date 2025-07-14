@@ -17,7 +17,7 @@ import {
   Users,
   TrendingUp,
   Star,
-  Fork,
+  GitFork,
   Eye,
   Download,
   Play,
