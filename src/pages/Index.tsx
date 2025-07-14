@@ -162,9 +162,9 @@ const Index = () => {
               <Button
                 size="lg"
                 className="peace-gradient peace-glow transition-smooth hover:scale-105"
-                asChild
+                onClick={() => handleProtectedNavigation("/dashboard")}
               >
-                <Link to="/dashboard">Explore Dashboard</Link>
+                Explore Dashboard
               </Button>
               <Button
                 size="lg"
