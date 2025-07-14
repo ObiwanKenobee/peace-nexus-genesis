@@ -296,17 +296,17 @@ const Index = () => {
               <Button
                 size="lg"
                 className="peace-gradient peace-glow transition-smooth hover:scale-105"
-                asChild
+                onClick={() => handleProtectedNavigation("/governance")}
               >
-                <Link to="/governance">Join DAO</Link>
+                Join DAO
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="transition-smooth hover:scale-105"
-                asChild
+                onClick={() => handleProtectedNavigation("/education")}
               >
-                <Link to="/education">Start Learning</Link>
+                Start Learning
               </Button>
             </div>
           </div>
