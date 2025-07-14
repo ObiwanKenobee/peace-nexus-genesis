@@ -440,6 +440,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Admin Access */}
+      <AdminAccess />
     </div>
   );
 };
