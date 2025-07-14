@@ -51,12 +51,38 @@ const App = () => (
           <Route path="/vr-labs" element={<VRLabs />} />
           <Route path="/ai-agents" element={<AIAgents />} />
 
-          {/* Admin Routes */}
-          <Route path="/admin" element={<AdminLayout />}>
+                    {/* Admin Login Route */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+
+          {/* Protected Admin Routes */}
+          <Route path="/admin" element={
+            <ProtectedAdminRoute>
+              <AdminLayout />
+            </ProtectedAdminRoute>
+          }>
             <Route index element={<AdminDashboard />} />
             <Route path="platform" element={<PlatformManagement />} />
-            <Route path="seo" element={<SEODashboard />} />
+            <Route path="seo" element={
+              <ProtectedAdminRoute requiredPermission="seo_management">
+                <SEODashboard />
+              </ProtectedAdminRoute>
+            } />
+            <Route path="users" element={
+              <ProtectedAdminRoute requiredPermission="user_management">
+                <UserManagement />
+              </ProtectedAdminRoute>
+            } />
+            <Route path="analytics" element={
+              <ProtectedAdminRoute requiredPermission="analytics_read">
+                <Analytics />
+              </ProtectedAdminRoute>
+            } />
             <Route path="global" element={<GlobalSettings />} />
+            <Route path="security" element={
+              <ProtectedAdminRoute requiredPermission="security_management">
+                <SecurityManagement />
+              </ProtectedAdminRoute>
+            } />
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
