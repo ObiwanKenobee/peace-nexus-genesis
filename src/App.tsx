@@ -44,68 +44,93 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-            <BrowserRouter>
+      <BrowserRouter>
         <AdminAuthProvider>
-        <PaxisAuthProvider>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/commons" element={<Commons />} />
-          <Route path="/mediation" element={<Mediation />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/governance" element={<Governance />} />
-          <Route path="/peacecoin" element={<PeaceCoin />} />
-          <Route path="/security" element={<Security />} />
-                    <Route path="/pilot" element={<Pilot />} />
-          <Route path="/vr-labs" element={<VRLabs />} />
-          <Route path="/ai-agents" element={<AIAgents />} />
+          <PaxisAuthProvider>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/commons" element={<Commons />} />
+              <Route path="/mediation" element={<Mediation />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/governance" element={<Governance />} />
+              <Route path="/peacecoin" element={<PeaceCoin />} />
+              <Route path="/security" element={<Security />} />
+              <Route path="/pilot" element={<Pilot />} />
+              <Route path="/vr-labs" element={<VRLabs />} />
+              <Route path="/ai-agents" element={<AIAgents />} />
 
-                              {/* PAXIS User Authentication */}
-          <Route path="/login" element={<PaxisLogin />} />
-          <Route path="/dashboard" element={<DashboardRouter />} />
+              {/* PAXIS User Authentication */}
+              <Route path="/login" element={<PaxisLogin />} />
+              <Route path="/dashboard" element={<DashboardRouter />} />
 
-          {/* Archetype-specific dashboards */}
-          <Route path="/dashboard/peace-architect" element={<PeaceArchitectDashboard />} />
-          <Route path="/dashboard/tech-diplomat" element={<TechDiplomatDashboard />} />
-          <Route path="/dashboard/grassroots" element={<GrassrootsDashboard />} />
+              {/* Archetype-specific dashboards */}
+              <Route
+                path="/dashboard/peace-architect"
+                element={<PeaceArchitectDashboard />}
+              />
+              <Route
+                path="/dashboard/tech-diplomat"
+                element={<TechDiplomatDashboard />}
+              />
+              <Route
+                path="/dashboard/grassroots"
+                element={<GrassrootsDashboard />}
+              />
 
-          {/* Admin Login Route */}
-          <Route path="/admin/login" element={<AdminLogin />} />
+              {/* Admin Login Route */}
+              <Route path="/admin/login" element={<AdminLogin />} />
 
-          {/* Protected Admin Routes */}
-          <Route path="/admin" element={
-            <ProtectedAdminRoute>
-              <AdminLayout />
-            </ProtectedAdminRoute>
-          }>
-            <Route index element={<AdminDashboard />} />
-            <Route path="platform" element={<PlatformManagement />} />
-            <Route path="seo" element={
-              <ProtectedAdminRoute requiredPermission="seo_management">
-                <SEODashboard />
-              </ProtectedAdminRoute>
-            } />
-            <Route path="users" element={
-              <ProtectedAdminRoute requiredPermission="user_management">
-                <UserManagement />
-              </ProtectedAdminRoute>
-            } />
-            <Route path="analytics" element={
-              <ProtectedAdminRoute requiredPermission="analytics_read">
-                <Analytics />
-              </ProtectedAdminRoute>
-            } />
-            <Route path="global" element={<GlobalSettings />} />
-            <Route path="security" element={
-              <ProtectedAdminRoute requiredPermission="security_management">
-                <SecurityManagement />
-              </ProtectedAdminRoute>
-            } />
-          </Route>
+              {/* Protected Admin Routes */}
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedAdminRoute>
+                    <AdminLayout />
+                  </ProtectedAdminRoute>
+                }
+              >
+                <Route index element={<AdminDashboard />} />
+                <Route path="platform" element={<PlatformManagement />} />
+                <Route
+                  path="seo"
+                  element={
+                    <ProtectedAdminRoute requiredPermission="seo_management">
+                      <SEODashboard />
+                    </ProtectedAdminRoute>
+                  }
+                />
+                <Route
+                  path="users"
+                  element={
+                    <ProtectedAdminRoute requiredPermission="user_management">
+                      <UserManagement />
+                    </ProtectedAdminRoute>
+                  }
+                />
+                <Route
+                  path="analytics"
+                  element={
+                    <ProtectedAdminRoute requiredPermission="analytics_read">
+                      <Analytics />
+                    </ProtectedAdminRoute>
+                  }
+                />
+                <Route path="global" element={<GlobalSettings />} />
+                <Route
+                  path="security"
+                  element={
+                    <ProtectedAdminRoute requiredPermission="security_management">
+                      <SecurityManagement />
+                    </ProtectedAdminRoute>
+                  }
+                />
+              </Route>
 
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-                </Routes>
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </PaxisAuthProvider>
         </AdminAuthProvider>
       </BrowserRouter>
     </TooltipProvider>
