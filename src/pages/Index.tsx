@@ -9,6 +9,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Globe, Shield, Zap, Users, Brain, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import AdminAccess from "@/components/AdminAccess";
 
 const Index = () => {
   const features = [
