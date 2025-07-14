@@ -1,5 +1,5 @@
-import { Resolver, Query, Mutation, Args, ID } from "@nestjs/graphql";
-import { UseGuards } from "@nestjs/common";
+import { Resolver, Query, Mutation, Args, ID, Int } from "@nestjs/graphql";
+import { UseGuards, ForbiddenException } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { User } from "./entities/user.entity";
 import { CreateUserInput } from "./dto/create-user.input";
