@@ -92,42 +92,42 @@ const Index = () => {
           </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <nav className="flex items-center space-x-6">
-              <Link
-                to="/dashboard"
-                className="transition-smooth hover:text-primary"
+              <button
+                onClick={() => handleProtectedNavigation("/dashboard")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
                 Dashboard
-              </Link>
-              <Link
-                to="/commons"
-                className="transition-smooth hover:text-primary"
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/commons")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
                 Commons
-              </Link>
-              <Link
-                to="/mediation"
-                className="transition-smooth hover:text-primary"
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/mediation")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
                 Mediation
-              </Link>
-              <Link
-                to="/education"
-                className="transition-smooth hover:text-primary"
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/education")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
                 Education
-              </Link>
-              <Link
-                to="/governance"
-                className="transition-smooth hover:text-primary"
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/governance")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
                 DAO
-              </Link>
-              <Link
-                to="/peacecoin"
-                className="transition-smooth hover:text-primary"
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/peacecoin")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
                 PeaceCoin
-              </Link>
+              </button>
               <Link
                 to="/pricing"
                 className="transition-smooth hover:text-primary"
