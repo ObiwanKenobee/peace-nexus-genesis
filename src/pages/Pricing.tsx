@@ -558,6 +558,16 @@ const PricingPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Payment Modal */}
+      {selectedTier && (
+        <PaymentModal
+          isOpen={isPaymentModalOpen}
+          onClose={closePaymentModal}
+          tier={selectedTier}
+          isAnnual={isAnnual}
+        />
+      )}
     </div>
   );
 };
