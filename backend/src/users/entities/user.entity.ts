@@ -102,6 +102,14 @@ export class User {
   @Column("text", { array: true, default: [] })
   roles: string[];
 
+  @Field({ defaultValue: "free" })
+  @Column({ default: "free" })
+  tier: string;
+
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  tierUpdatedAt?: Date;
+
   @Field({ nullable: true })
   @Column({ nullable: true })
   lastLogin?: Date;
