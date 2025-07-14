@@ -52,14 +52,7 @@ const App = () => (
           <PaxisAuthProvider>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedPaxisRoute>
-                    <Dashboard />
-                  </ProtectedPaxisRoute>
-                }
-              />
+              <Route path="/dashboard" element={<DashboardRouter />} />
               <Route
                 path="/commons"
                 element={
