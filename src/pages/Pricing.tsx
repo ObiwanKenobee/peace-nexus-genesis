@@ -32,6 +32,9 @@ import {
 const PricingPage = () => {
   const [isAnnual, setIsAnnual] = useState(false);
   const [currency, setCurrency] = useState<"USD" | "PeaceCoin">("USD");
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [selectedTier, setSelectedTier] = useState<any>(null);
+  const { user, isAuthenticated } = usePaxisAuth();
 
   const tiers = [
     {
