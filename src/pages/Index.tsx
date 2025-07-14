@@ -117,6 +117,12 @@ const Index = () => {
               >
                 PeaceCoin
               </Link>
+              <Link
+                to="/pricing"
+                className="transition-smooth hover:text-primary"
+              >
+                Pricing
+              </Link>
             </nav>
             <Button className="peace-gradient peace-glow transition-smooth hover:scale-105">
               Join DAO
