@@ -2,6 +2,16 @@ import { useState } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useAdminAuth } from "@/contexts/AdminAuthContext";
 import {
   Settings,
   Search,
@@ -12,6 +22,8 @@ import {
   Menu,
   X,
   ChevronRight,
+  LogOut,
+  User,
 } from "lucide-react";
 
 const adminNavItems = [
