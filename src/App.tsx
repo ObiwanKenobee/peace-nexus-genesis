@@ -12,6 +12,8 @@ import Governance from "./pages/Governance";
 import PeaceCoin from "./pages/PeaceCoin";
 import Security from "./pages/Security";
 import Pilot from "./pages/Pilot";
+import VRLabs from "./pages/VRLabs";
+import AIAgents from "./pages/AIAgents";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
