@@ -378,12 +378,12 @@ const Index = () => {
               <h3 className="font-semibold mb-4">Community</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link
-                    to="/governance"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/governance")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     DAO Governance
-                  </Link>
+                  </button>
                 </li>
                 <li>
                   <a
