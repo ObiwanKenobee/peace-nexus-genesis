@@ -135,4 +135,8 @@ export class User {
   @Field(() => [PeaceCoinTransaction], { nullable: true })
   @OneToMany(() => PeaceCoinTransaction, (transaction) => transaction.user)
   peaceCoinTransactions?: PeaceCoinTransaction[];
+
+  // Payment relationships will be added when Payment entities are imported
+  payments?: any[];
+  subscriptions?: any[];
 }
