@@ -23,6 +23,7 @@ import { BlockchainModule } from "./blockchain/blockchain.module";
 import { NotificationsModule } from "./notifications/notifications.module";
 import { AnalyticsModule } from "./analytics/analytics.module";
 import { PaymentModule } from "./payment/payment.module";
+import { SEOCrawlerModule } from "./seo-crawler/seo-crawler.module";
 
 @Module({
   imports: [
@@ -102,6 +103,7 @@ import { PaymentModule } from "./payment/payment.module";
     NotificationsModule,
     AnalyticsModule,
     PaymentModule,
+    SEOCrawlerModule,
   ],
 })
 export class AppModule {}

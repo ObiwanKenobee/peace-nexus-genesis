@@ -17,7 +17,9 @@ import {
   Save,
   RefreshCw,
   BarChart3,
+  Bot,
 } from "lucide-react";
+import SEOCrawlerDashboard from "@/components/seo/SEOCrawlerDashboard";
 import {
   Select,
   SelectContent,
@@ -197,11 +199,12 @@ export default function SEODashboard() {
       </div>
 
       <Tabs defaultValue="meta-tags" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-5">
+        <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="meta-tags">Meta Tags</TabsTrigger>
           <TabsTrigger value="keywords">Keywords</TabsTrigger>
           <TabsTrigger value="geo-targeting">Geo-Targeting</TabsTrigger>
           <TabsTrigger value="structured-data">Schema.org</TabsTrigger>
+          <TabsTrigger value="crawler">Crawler Engine</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
         </TabsList>
 
@@ -487,6 +490,11 @@ export default function SEODashboard() {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
+
+        {/* SEO Crawler Engine */}
+        <TabsContent value="crawler" className="space-y-6">
+          <SEOCrawlerDashboard />
         </TabsContent>
 
         {/* Analytics */}
