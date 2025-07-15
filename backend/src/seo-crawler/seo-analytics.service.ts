@@ -104,7 +104,9 @@ export class SEOAnalyticsService {
     return metrics.sort((a, b) => b.opportunityScore - a.opportunityScore);
   }
 
-  async getKeywordPerformance(keyword: string): Promise<any> {
+  async getKeywordPerformance(
+    keyword: string,
+  ): Promise<KeywordPerformance | null> {
     const keywordData = await this.getRankingHistory({ keyword, days: 90 });
 
     if (keywordData.length === 0) {
@@ -237,7 +239,7 @@ export class SEOAnalyticsService {
     return [...new Set(this.rankingData.map((r) => r.region))];
   }
 
-  private getKeywordRegionalData(data: RankingData[]): any[] {
+  private getKeywordRegionalData(data: RankingData[]): RegionalKeywordData[] {
     const regionMap = new Map<string, { positions: number[]; count: number }>();
 
     data.forEach((r) => {
@@ -258,7 +260,7 @@ export class SEOAnalyticsService {
     }));
   }
 
-  private calculateKeywordTrend(data: RankingData[]): any {
+  private calculateKeywordTrend(data: RankingData[]): KeywordTrend {
     if (data.length < 2) return { direction: "stable", change: 0 };
 
     const sortedData = data.sort(
@@ -274,7 +276,7 @@ export class SEOAnalyticsService {
     return { direction, change: Math.abs(change) };
   }
 
-  private analyzeKeywordCompetitors(data: RankingData[]): any {
+  private analyzeKeywordCompetitors(data: RankingData[]): CompetitorInsight[] {
     const competitorMap = new Map<
       string,
       {
