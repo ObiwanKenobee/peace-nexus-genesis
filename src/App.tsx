@@ -100,6 +100,49 @@ const App = () => (
                 }
               />
               <Route path="/security" element={<Security />} />
+
+              {/* Enterprise CRUD Pages - Protected */}
+              <Route
+                path="/organizations"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Organizations />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/peace-projects"
+                element={
+                  <ProtectedPaxisRoute>
+                    <PeaceProjects />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/peace-network"
+                element={
+                  <ProtectedPaxisRoute>
+                    <UserProfiles />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dao-governance"
+                element={
+                  <ProtectedPaxisRoute>
+                    <DAOGovernance />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/knowledge"
+                element={
+                  <ProtectedPaxisRoute>
+                    <PeaceKnowledgebase />
+                  </ProtectedPaxisRoute>
+                }
+              />
+
               <Route path="/pilot" element={<Pilot />} />
               <Route path="/vr-labs" element={<VRLabs />} />
               <Route path="/ai-agents" element={<AIAgents />} />
