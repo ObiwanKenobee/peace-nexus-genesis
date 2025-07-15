@@ -134,6 +134,90 @@ export default function SEOCrawlerDashboard() {
     loadDashboardData();
   }, [selectedRegion, selectedTimeframe]);
 
+  const loadCrawlerStats = useCallback(async () => {
+    try {
+      const stats = await seoCrawlerAPI.getPerformanceSummary();
+      setCrawlerStats(stats);
+    } catch (error) {
+      console.error("Failed to load crawler stats:", error);
+    }
+  }, []);
+
+  const loadRankings = useCallback(async () => {
+    try {
+      const filters = {
+        region: selectedRegion === "all" ? undefined : selectedRegion,
+        days: parseInt(selectedTimeframe),
+      };
+      const rankingsData = await seoCrawlerAPI.getRankings(filters);
+      // Add trend information (would come from API in real implementation)
+      const rankingsWithTrend = rankingsData.map((r) => ({
+        ...r,
+        timestamp: r.timestamp.toISOString().split("T")[0],
+        trend:
+          Math.random() > 0.6
+            ? "up"
+            : Math.random() > 0.3
+              ? "stable"
+              : ("down" as "up" | "down" | "stable"),
+      }));
+      setRankings(rankingsWithTrend);
+    } catch (error) {
+      console.error("Failed to load rankings:", error);
+    }
+  }, [selectedRegion, selectedTimeframe]);
+
+  const loadRegionalMetrics = useCallback(async () => {
+    try {
+      const region = selectedRegion === "all" ? undefined : selectedRegion;
+      const metrics = await seoCrawlerAPI.getRegionalMetrics(region);
+      setRegionalMetrics(metrics);
+    } catch (error) {
+      console.error("Failed to load regional metrics:", error);
+    }
+  }, [selectedRegion]);
+
+  const loadOptimizationActions = useCallback(async () => {
+    try {
+      const insights = await seoCrawlerAPI.getInsights({
+        region: selectedRegion === "all" ? undefined : selectedRegion,
+        days: parseInt(selectedTimeframe),
+      });
+
+      // Convert insights to optimization actions format
+      const actions: OptimizationAction[] = [
+        ...insights.optimizationOpportunities.map((opp, index) => ({
+          type: "content_suggestion" as const,
+          target: `optimization-${index}`,
+          description: opp,
+          priority: "high" as const,
+          estimatedImpact: 8,
+          implementationDetails: { suggestion: opp },
+        })),
+        ...insights.contentSuggestions.map((suggestion, index) => ({
+          type: "content_suggestion" as const,
+          target: `content-${index}`,
+          description: suggestion,
+          priority: "medium" as const,
+          estimatedImpact: 6,
+          implementationDetails: { suggestion },
+        })),
+        ...insights.technicalIssues.map((issue, index) => ({
+          type: "technical_fix" as const,
+          target: `technical-${index}`,
+          description: issue,
+          priority: "medium" as const,
+          estimatedImpact: 5,
+          implementationDetails: { issue },
+        })),
+      ];
+
+      setOptimizationActions(actions);
+    } catch (error) {
+      console.error("Failed to load optimization actions:", error);
+    }
+  }, [selectedRegion, selectedTimeframe]);
+
   const loadDashboardData = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -149,7 +233,12 @@ export default function SEOCrawlerDashboard() {
     } finally {
       setIsLoading(false);
     }
-  }, [selectedRegion, selectedTimeframe]);
+  }, [
+    loadCrawlerStats,
+    loadRankings,
+    loadRegionalMetrics,
+    loadOptimizationActions,
+  ]);
 
   const loadCrawlerStats = async () => {
     try {
