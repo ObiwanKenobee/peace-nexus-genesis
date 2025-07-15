@@ -21,6 +21,7 @@ import {
   Eye,
   ArrowRight,
   Plus,
+  LogOut,
 } from "lucide-react";
 
 const conflictHotspots = [
