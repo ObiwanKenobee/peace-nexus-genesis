@@ -131,7 +131,6 @@ export class SEOOptimizerService {
     ];
   }
 
-  @Cron(CronExpression.EVERY_DAY_AT_2AM)
   async runAutomatedOptimization(): Promise<void> {
     if (!this.config.enabled) {
       this.logger.log("Automated optimization is disabled");
