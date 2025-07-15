@@ -28,6 +28,7 @@ import {
   Coins,
   Factory,
   Truck,
+  TreePine,
   LogOut,
 } from "lucide-react";
 
@@ -377,7 +378,7 @@ export default function PeacepreneurDashboard() {
                 <CardTitle>Enterprise Actions</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <Button
                     className="h-auto p-4 flex flex-col items-center space-y-2 bg-gradient-to-r from-orange-600 to-green-600 hover:from-orange-700 hover:to-green-700"
                     onClick={handleNewVenture}
@@ -408,6 +409,17 @@ export default function PeacepreneurDashboard() {
                     <span>Generate Impact Report</span>
                     <span className="text-xs text-gray-500">
                       Earn 150 PeaceCoins
+                    </span>
+                  </Button>
+                  <Button
+                    className="h-auto p-4 flex flex-col items-center space-y-2"
+                    variant="outline"
+                    onClick={() => window.open("/wildlife-peace", "_blank")}
+                  >
+                    <TreePine className="w-6 h-6" />
+                    <span>Wildlife Peace</span>
+                    <span className="text-xs text-gray-500">
+                      Sacred Covenant
                     </span>
                   </Button>
                 </div>
