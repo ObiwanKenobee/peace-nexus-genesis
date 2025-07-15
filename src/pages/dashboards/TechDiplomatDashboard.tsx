@@ -156,7 +156,7 @@ export default function TechDiplomatDashboard() {
               Building peace infrastructure • {user?.name} •{" "}
               {user?.organization}
             </p>
-                    </div>
+          </div>
           <div className="flex items-center space-x-4">
             <Badge className="bg-green-100 text-green-800">
               Level {user?.level} Developer
@@ -173,7 +173,6 @@ export default function TechDiplomatDashboard() {
               <LogOut className="h-4 w-4 mr-2" />
               Logout
             </Button>
-            </div>
           </div>
         </div>
       </div>
