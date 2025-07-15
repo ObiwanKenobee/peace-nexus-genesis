@@ -20,6 +20,49 @@ export interface RegionalAnalysisDto {
   timeframe: string;
 }
 
+export interface RegionalStrategy {
+  region: string;
+  countries: string[];
+  keywordTargets: string[];
+  contentPriorities: string[];
+  technicalOptimizations: string[];
+  linkBuildingStrategy: string[];
+  localizations: {
+    languages: string[];
+    culturalConsiderations: string[];
+    localPartners: string[];
+  };
+}
+
+export interface PerformanceSummary {
+  totalKeywords: number;
+  avgPosition: number;
+  topPerformingRegions: TopRegion[];
+  improvementOpportunities: string[];
+  recentTrends: TrendAnalysis;
+}
+
+export interface TopRegion {
+  region: string;
+  avgPosition: number;
+  keywordCount: number;
+}
+
+export interface TrendAnalysis {
+  direction: string;
+  percentage: string;
+  recentAvgPosition: string;
+  previousAvgPosition: string;
+}
+
+export interface CompetitorAnalysisResult {
+  domain: string;
+  avgPosition: number;
+  appearances: number;
+  totalBacklinks: number;
+  competingKeywords: string[];
+}
+
 @Controller("api/seo-crawler")
 export class SEOCrawlerController {
   private readonly logger = new Logger(SEOCrawlerController.name);
