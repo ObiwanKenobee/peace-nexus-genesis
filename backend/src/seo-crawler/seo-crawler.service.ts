@@ -347,7 +347,7 @@ export class SEOCrawlerService {
   }
 
   private getRegionalLocalizations(region: string): RegionalLocalization {
-    const localizationMap: Record<string, any> = {
+    const localizationMap: Record<string, RegionalLocalization> = {
       "East Africa": {
         languages: ["Swahili", "Amharic", "Arabic", "French"],
         culturalConsiderations: [
