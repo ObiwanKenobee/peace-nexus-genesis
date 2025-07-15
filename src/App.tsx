@@ -177,6 +177,14 @@ const App = () => (
                   </ProtectedPaxisRoute>
                 }
               />
+              <Route
+                path="/dashboard/analyst"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="conflict_analyst">
+                    <ConflictAnalystDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
 
               {/* Admin Login Route */}
               <Route path="/admin/login" element={<AdminLogin />} />
