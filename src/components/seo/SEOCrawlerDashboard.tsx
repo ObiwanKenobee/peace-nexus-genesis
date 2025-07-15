@@ -111,6 +111,13 @@ interface RegionalMetrics {
   opportunityScore: number;
 }
 
+interface ChartDataPoint {
+  name: string;
+  avgPosition: number;
+  opportunityScore: number;
+  keywords: number;
+}
+
 export default function SEOCrawlerDashboard() {
   const [crawlerStats, setCrawlerStats] = useState<CrawlerStats | null>(null);
   const [rankings, setRankings] = useState<RankingData[]>([]);
