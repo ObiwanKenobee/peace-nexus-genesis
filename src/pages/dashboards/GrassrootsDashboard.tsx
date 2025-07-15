@@ -144,8 +144,12 @@ const rapidAlerts = [
 ];
 
 export default function GrassrootsDashboard() {
-  const { user, earnPeaceCoin } = usePaxisAuth();
+  const { user, earnPeaceCoin, logout } = usePaxisAuth();
   const [selectedTab, setSelectedTab] = useState("overview");
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const handleStartMediation = () => {
     earnPeaceCoin(75, "Started new community mediation session");
