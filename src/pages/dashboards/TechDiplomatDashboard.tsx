@@ -23,6 +23,7 @@ import {
   Play,
   Plus,
   ExternalLink,
+  LogOut,
 } from "lucide-react";
 
 const sdkMetrics = [
