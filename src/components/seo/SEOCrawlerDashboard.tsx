@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  seoCrawlerAPI,
+  CrawlerStats,
+  RankingData,
+  RegionalMetrics,
+  OptimizationAction,
+} from "@/api/seo-crawler";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
