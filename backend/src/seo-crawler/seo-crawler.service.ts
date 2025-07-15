@@ -40,7 +40,7 @@ export interface CrawlerInsights {
 export class SEOCrawlerService {
   private readonly logger = new Logger(SEOCrawlerService.name);
 
-  constructor(private readonly httpService: HttpService) {}
+  constructor() {}
 
   async crawlRegionalRankings(
     targets: CrawlerTarget[],
