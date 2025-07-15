@@ -148,6 +148,10 @@ export default function PeaceArchitectDashboard() {
             <Badge className="bg-blue-100 text-blue-800">
               Level {user?.level} Architect
             </Badge>
+            <Button variant="outline" size="sm" onClick={handleLogout}>
+              <LogOut className="h-4 w-4 mr-2" />
+              Logout
+            </Button>
             <div className="text-right">
               <div className="text-sm font-medium">
                 {user?.peaceCoinBalance} PeaceCoins
