@@ -342,34 +342,34 @@ const Index = () => {
                 </li>
                 <li>
                   <button
-                    onClick={() => handleProtectedNavigation("/commons")}
+                    onClick={() => handleProtectedNavigation("/organizations")}
                     className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
-                    Resource Commons
+                    Organizations
                   </button>
                 </li>
                 <li>
                   <button
-                    onClick={() => handleProtectedNavigation("/mediation")}
+                    onClick={() => handleProtectedNavigation("/peace-projects")}
                     className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
-                    Mediation
+                    Peace Projects
                   </button>
                 </li>
                 <li>
                   <button
-                    onClick={() => handleProtectedNavigation("/education")}
+                    onClick={() => handleProtectedNavigation("/peace-network")}
                     className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
-                    Education
+                    Peace Network
                   </button>
                 </li>
                 <li>
                   <button
-                    onClick={() => handleProtectedNavigation("/peacecoin")}
+                    onClick={() => handleProtectedNavigation("/knowledge")}
                     className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
-                    PeaceCoin
+                    Knowledge Base
                   </button>
                 </li>
               </ul>
