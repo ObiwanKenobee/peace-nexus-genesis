@@ -103,6 +103,7 @@ import { SEOCrawlerModule } from "./seo-crawler/seo-crawler.module";
     NotificationsModule,
     AnalyticsModule,
     PaymentModule,
+    SEOCrawlerModule,
   ],
 })
 export class AppModule {}
