@@ -93,7 +93,7 @@ interface OptimizationAction {
   description: string;
   priority: "high" | "medium" | "low";
   estimatedImpact: number;
-  implementationDetails: any;
+  implementationDetails: Record<string, unknown>;
 }
 
 interface RegionalMetrics {
