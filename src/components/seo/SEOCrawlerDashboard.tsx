@@ -132,7 +132,7 @@ export default function SEOCrawlerDashboard() {
 
   useEffect(() => {
     loadDashboardData();
-  }, [selectedRegion, selectedTimeframe]);
+  }, [loadDashboardData]);
 
   const loadCrawlerStats = useCallback(async () => {
     try {
