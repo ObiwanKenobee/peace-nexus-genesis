@@ -154,50 +154,27 @@ export default function SEOCrawlerDashboard() {
   };
 
   const loadRankings = async () => {
-    // Simulate API call with mock data
-    const mockRankings: RankingData[] = [
-      {
-        keyword: "peacetech",
-        position: 8,
-        region: "Global",
-        searchEngine: "google",
-        timestamp: "2024-01-15",
-        trend: "up",
-      },
-      {
-        keyword: "conflict resolution AI",
-        position: 15,
-        region: "East Africa",
-        searchEngine: "google",
-        timestamp: "2024-01-15",
-        trend: "stable",
-      },
-      {
-        keyword: "peace DAO",
-        position: 12,
-        region: "Global",
-        searchEngine: "google",
-        timestamp: "2024-01-15",
-        trend: "up",
-      },
-      {
-        keyword: "blockchain for peace",
-        position: 24,
-        region: "Middle East",
-        searchEngine: "google",
-        timestamp: "2024-01-15",
-        trend: "down",
-      },
-      {
-        keyword: "VR empathy lab",
-        position: 18,
-        region: "Global",
-        searchEngine: "google",
-        timestamp: "2024-01-15",
-        trend: "up",
-      },
-    ];
-    setRankings(mockRankings);
+    try {
+      const filters = {
+        region: selectedRegion === "all" ? undefined : selectedRegion,
+        days: parseInt(selectedTimeframe),
+      };
+      const rankingsData = await seoCrawlerAPI.getRankings(filters);
+      // Add trend information (would come from API in real implementation)
+      const rankingsWithTrend = rankingsData.map((r) => ({
+        ...r,
+        timestamp: r.timestamp.toISOString().split("T")[0],
+        trend:
+          Math.random() > 0.6
+            ? "up"
+            : Math.random() > 0.3
+              ? "stable"
+              : ("down" as "up" | "down" | "stable"),
+      }));
+      setRankings(rankingsWithTrend);
+    } catch (error) {
+      console.error("Failed to load rankings:", error);
+    }
   };
 
   const loadRegionalMetrics = async () => {
