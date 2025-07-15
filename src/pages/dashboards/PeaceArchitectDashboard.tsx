@@ -116,8 +116,12 @@ const governanceMetrics = [
 ];
 
 export default function PeaceArchitectDashboard() {
-  const { user, earnPeaceCoin } = usePaxisAuth();
+  const { user, earnPeaceCoin, logout } = usePaxisAuth();
   const [selectedTab, setSelectedTab] = useState("overview");
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const handleNewTreaty = () => {
     earnPeaceCoin(50, "Started new peace treaty draft");
