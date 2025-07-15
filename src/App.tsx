@@ -37,6 +37,12 @@ import Pricing from "./pages/Pricing";
 import PeaceArchitectDashboard from "./pages/dashboards/PeaceArchitectDashboard";
 import TechDiplomatDashboard from "./pages/dashboards/TechDiplomatDashboard";
 import GrassrootsDashboard from "./pages/dashboards/GrassrootsDashboard";
+import ConflictAnalystDashboard from "./pages/dashboards/ConflictAnalystDashboard";
+import Organizations from "./pages/Organizations";
+import PeaceProjects from "./pages/PeaceProjects";
+import UserProfiles from "./pages/UserProfiles";
+import DAOGovernance from "./pages/DAOGovernance";
+import PeaceKnowledgebase from "./pages/PeaceKnowledgebase";
 import { PaxisAuthProvider } from "./contexts/PaxisAuthContext";
 import ProtectedPaxisRoute from "./components/ProtectedPaxisRoute";
 
