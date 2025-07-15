@@ -156,8 +156,8 @@ export default function TechDiplomatDashboard() {
               Building peace infrastructure • {user?.name} •{" "}
               {user?.organization}
             </p>
-          </div>
-                    <div className="flex items-center space-x-4">
+                    </div>
+          <div className="flex items-center space-x-4">
             <Badge className="bg-green-100 text-green-800">
               Level {user?.level} Developer
             </Badge>
