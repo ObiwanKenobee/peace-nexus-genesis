@@ -272,7 +272,7 @@ export default function SEOCrawlerDashboard() {
     }
   };
 
-  const chartData = regionalMetrics.map((region) => ({
+  const chartData: ChartDataPoint[] = regionalMetrics.map((region) => ({
     name: region.region,
     avgPosition: region.metrics.avgPosition,
     opportunityScore: region.opportunityScore,
