@@ -25,6 +25,36 @@ export interface RegionalMetrics {
   opportunityScore: number;
 }
 
+export interface KeywordPerformance {
+  keyword: string;
+  currentPosition: number | null;
+  bestPosition: number;
+  worstPosition: number;
+  avgPosition: number;
+  regions: RegionalKeywordData[];
+  trend: KeywordTrend;
+  competitorInsights: CompetitorInsight[];
+}
+
+export interface RegionalKeywordData {
+  region: string;
+  avgPosition: number;
+  dataPoints: number;
+}
+
+export interface KeywordTrend {
+  direction: "improving" | "declining" | "stable";
+  change: number;
+}
+
+export interface CompetitorInsight {
+  domain: string;
+  appearances: number;
+  avgPosition: number;
+  totalPosition: number;
+  bestPosition: number;
+}
+
 @Injectable()
 export class SEOAnalyticsService {
   private readonly logger = new Logger(SEOAnalyticsService.name);
