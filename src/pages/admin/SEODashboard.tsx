@@ -492,6 +492,11 @@ export default function SEODashboard() {
           </Card>
         </TabsContent>
 
+        {/* SEO Crawler Engine */}
+        <TabsContent value="crawler" className="space-y-6">
+          <SEOCrawlerDashboard />
+        </TabsContent>
+
         {/* Analytics */}
         <TabsContent value="analytics" className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
