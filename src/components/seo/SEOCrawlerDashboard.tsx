@@ -178,65 +178,13 @@ export default function SEOCrawlerDashboard() {
   };
 
   const loadRegionalMetrics = async () => {
-    const mockMetrics: RegionalMetrics[] = [
-      {
-        region: "Global",
-        metrics: {
-          totalKeywords: 45,
-          avgPosition: 18.2,
-          top10Keywords: 12,
-          top3Keywords: 3,
-          impressions: 45200,
-          clicks: 2840,
-          ctr: 6.3,
-        },
-        trending: "up",
-        opportunityScore: 85,
-      },
-      {
-        region: "East Africa",
-        metrics: {
-          totalKeywords: 32,
-          avgPosition: 28.7,
-          top10Keywords: 6,
-          top3Keywords: 1,
-          impressions: 18400,
-          clicks: 980,
-          ctr: 5.3,
-        },
-        trending: "stable",
-        opportunityScore: 72,
-      },
-      {
-        region: "Middle East",
-        metrics: {
-          totalKeywords: 25,
-          avgPosition: 31.5,
-          top10Keywords: 4,
-          top3Keywords: 0,
-          impressions: 12200,
-          clicks: 520,
-          ctr: 4.3,
-        },
-        trending: "down",
-        opportunityScore: 68,
-      },
-      {
-        region: "South Asia",
-        metrics: {
-          totalKeywords: 25,
-          avgPosition: 35.8,
-          top10Keywords: 3,
-          top3Keywords: 0,
-          impressions: 8900,
-          clicks: 310,
-          ctr: 3.5,
-        },
-        trending: "stable",
-        opportunityScore: 61,
-      },
-    ];
-    setRegionalMetrics(mockMetrics);
+    try {
+      const region = selectedRegion === "all" ? undefined : selectedRegion;
+      const metrics = await seoCrawlerAPI.getRegionalMetrics(region);
+      setRegionalMetrics(metrics);
+    } catch (error) {
+      console.error("Failed to load regional metrics:", error);
+    }
   };
 
   const loadOptimizationActions = async () => {
