@@ -1,12 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  seoCrawlerAPI,
-  CrawlerStats,
-  RankingData,
-  RegionalMetrics,
-  OptimizationAction,
-} from "@/api/seo-crawler";
+import { seoCrawlerAPI, CrawlerStats, RankingData, RegionalMetrics, OptimizationAction } from "@/api/seo-crawler";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -122,9 +116,7 @@ export default function SEOCrawlerDashboard() {
   const [crawlerStats, setCrawlerStats] = useState<CrawlerStats | null>(null);
   const [rankings, setRankings] = useState<RankingData[]>([]);
   const [regionalMetrics, setRegionalMetrics] = useState<RegionalMetrics[]>([]);
-  const [optimizationActions, setOptimizationActions] = useState<
-    OptimizationAction[]
-  >([]);
+  const [optimizationActions, setOptimizationActions] = useState<OptimizationAction[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [crawlerRunning, setCrawlerRunning] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("all");
@@ -134,7 +126,7 @@ export default function SEOCrawlerDashboard() {
     loadDashboardData();
   }, [selectedRegion, selectedTimeframe]);
 
-  const loadDashboardData = async () => {
+    const loadDashboardData = useCallback(async () => {
     setIsLoading(true);
     try {
       // Simulate API calls
@@ -151,87 +143,82 @@ export default function SEOCrawlerDashboard() {
     }
   };
 
-  const loadCrawlerStats = async () => {
+    const loadCrawlerStats = async () => {
     try {
       const stats = await seoCrawlerAPI.getPerformanceSummary();
       setCrawlerStats(stats);
     } catch (error) {
-      console.error("Failed to load crawler stats:", error);
+      console.error('Failed to load crawler stats:', error);
     }
   };
 
-  const loadRankings = async () => {
+    const loadRankings = async () => {
     try {
       const filters = {
-        region: selectedRegion === "all" ? undefined : selectedRegion,
-        days: parseInt(selectedTimeframe),
+        region: selectedRegion === 'all' ? undefined : selectedRegion,
+        days: parseInt(selectedTimeframe)
       };
       const rankingsData = await seoCrawlerAPI.getRankings(filters);
       // Add trend information (would come from API in real implementation)
-      const rankingsWithTrend = rankingsData.map((r) => ({
+      const rankingsWithTrend = rankingsData.map(r => ({
         ...r,
-        timestamp: r.timestamp.toISOString().split("T")[0],
-        trend:
-          Math.random() > 0.6
-            ? "up"
-            : Math.random() > 0.3
-              ? "stable"
-              : ("down" as "up" | "down" | "stable"),
+        timestamp: r.timestamp.toISOString().split('T')[0],
+        trend: Math.random() > 0.6 ? 'up' : Math.random() > 0.3 ? 'stable' : 'down' as 'up' | 'down' | 'stable'
       }));
       setRankings(rankingsWithTrend);
     } catch (error) {
-      console.error("Failed to load rankings:", error);
+      console.error('Failed to load rankings:', error);
     }
   };
 
-  const loadRegionalMetrics = async () => {
+    const loadRegionalMetrics = async () => {
     try {
-      const region = selectedRegion === "all" ? undefined : selectedRegion;
+      const region = selectedRegion === 'all' ? undefined : selectedRegion;
       const metrics = await seoCrawlerAPI.getRegionalMetrics(region);
       setRegionalMetrics(metrics);
     } catch (error) {
-      console.error("Failed to load regional metrics:", error);
+      console.error('Failed to load regional metrics:', error);
     }
   };
 
-  const loadOptimizationActions = async () => {
+    const loadOptimizationActions = async () => {
     try {
       const insights = await seoCrawlerAPI.getInsights({
-        region: selectedRegion === "all" ? undefined : selectedRegion,
-        days: parseInt(selectedTimeframe),
+        region: selectedRegion === 'all' ? undefined : selectedRegion,
+        days: parseInt(selectedTimeframe)
       });
 
       // Convert insights to optimization actions format
       const actions: OptimizationAction[] = [
         ...insights.optimizationOpportunities.map((opp, index) => ({
-          type: "content_suggestion" as const,
+          type: 'content_suggestion' as const,
           target: `optimization-${index}`,
           description: opp,
-          priority: "high" as const,
+          priority: 'high' as const,
           estimatedImpact: 8,
-          implementationDetails: { suggestion: opp },
+          implementationDetails: { suggestion: opp }
         })),
         ...insights.contentSuggestions.map((suggestion, index) => ({
-          type: "content_suggestion" as const,
+          type: 'content_suggestion' as const,
           target: `content-${index}`,
           description: suggestion,
-          priority: "medium" as const,
+          priority: 'medium' as const,
           estimatedImpact: 6,
-          implementationDetails: { suggestion },
+          implementationDetails: { suggestion }
         })),
         ...insights.technicalIssues.map((issue, index) => ({
-          type: "technical_fix" as const,
+          type: 'technical_fix' as const,
           target: `technical-${index}`,
           description: issue,
-          priority: "medium" as const,
+          priority: 'medium' as const,
           estimatedImpact: 5,
-          implementationDetails: { issue },
-        })),
+          implementationDetails: { issue }
+        }))
       ];
 
       setOptimizationActions(actions);
     } catch (error) {
-      console.error("Failed to load optimization actions:", error);
+      console.error('Failed to load optimization actions:', error);
     }
   };
 
@@ -242,7 +229,7 @@ export default function SEOCrawlerDashboard() {
       await seoCrawlerAPI.startCrawl(targets);
       await loadDashboardData();
     } catch (error) {
-      console.error("Crawl failed:", error);
+      console.error('Crawl failed:', error);
     } finally {
       setCrawlerRunning(false);
     }
@@ -272,7 +259,7 @@ export default function SEOCrawlerDashboard() {
     }
   };
 
-  const chartData: ChartDataPoint[] = regionalMetrics.map((region) => ({
+    const chartData: ChartDataPoint[] = regionalMetrics.map((region) => ({
     name: region.region,
     avgPosition: region.metrics.avgPosition,
     opportunityScore: region.opportunityScore,
@@ -338,35 +325,23 @@ export default function SEOCrawlerDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-gray-600">
-                Total Keywords
-              </CardTitle>
+              <CardTitle className="text-sm text-gray-600">Total Keywords</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
-                {crawlerStats.totalKeywords}
-              </div>
-              <div className="text-xs text-gray-500">
-                Tracked across all regions
-              </div>
+              <div className="text-2xl font-bold">{crawlerStats.totalKeywords}</div>
+              <div className="text-xs text-gray-500">Tracked across all regions</div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-gray-600">
-                Avg Position
-              </CardTitle>
+              <CardTitle className="text-sm text-gray-600">Avg Position</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
-                {crawlerStats.avgPosition}
-              </div>
+              <div className="text-2xl font-bold">{crawlerStats.avgPosition}</div>
               <div className="flex items-center text-xs text-green-600">
                 <TrendingUp className="w-3 h-3 mr-1" />
-                {crawlerStats.recentTrends.direction === "improving"
-                  ? "+"
-                  : "-"}
+                {crawlerStats.recentTrends.direction === "improving" ? "+" : "-"}
                 {crawlerStats.recentTrends.percentage}% vs last week
               </div>
             </CardContent>
@@ -374,9 +349,7 @@ export default function SEOCrawlerDashboard() {
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-gray-600">
-                Top Regions
-              </CardTitle>
+              <CardTitle className="text-sm text-gray-600">Top Regions</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -390,17 +363,13 @@ export default function SEOCrawlerDashboard() {
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-gray-600">
-                Opportunities
-              </CardTitle>
+              <CardTitle className="text-sm text-gray-600">Opportunities</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-orange-600">
                 {crawlerStats.improvementOpportunities.length}
               </div>
-              <div className="text-xs text-gray-500">
-                Active recommendations
-              </div>
+              <div className="text-xs text-gray-500">Active recommendations</div>
             </CardContent>
           </Card>
         </div>
@@ -438,22 +407,16 @@ export default function SEOCrawlerDashboard() {
                 <TableBody>
                   {rankings.map((ranking, index) => (
                     <TableRow key={index}>
-                      <TableCell className="font-medium">
-                        {ranking.keyword}
-                      </TableCell>
+                      <TableCell className="font-medium">{ranking.keyword}</TableCell>
                       <TableCell>
                         <Badge
-                          variant={
-                            ranking.position <= 10 ? "default" : "secondary"
-                          }
+                          variant={ranking.position <= 10 ? "default" : "secondary"}
                         >
                           #{ranking.position}
                         </Badge>
                       </TableCell>
                       <TableCell>{ranking.region}</TableCell>
-                      <TableCell className="capitalize">
-                        {ranking.searchEngine}
-                      </TableCell>
+                      <TableCell className="capitalize">{ranking.searchEngine}</TableCell>
                       <TableCell>{getTrendIcon(ranking.trend)}</TableCell>
                     </TableRow>
                   ))}
@@ -492,20 +455,13 @@ export default function SEOCrawlerDashboard() {
                   {regionalMetrics.map((region, index) => (
                     <div key={index} className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">
-                          {region.region}
-                        </span>
+                        <span className="text-sm font-medium">{region.region}</span>
                         <div className="flex items-center space-x-2">
                           {getTrendIcon(region.trending)}
-                          <span className="text-sm">
-                            {region.opportunityScore}
-                          </span>
+                          <span className="text-sm">{region.opportunityScore}</span>
                         </div>
                       </div>
-                      <Progress
-                        value={region.opportunityScore}
-                        className="h-2"
-                      />
+                      <Progress value={region.opportunityScore} className="h-2" />
                     </div>
                   ))}
                 </div>
@@ -532,20 +488,14 @@ export default function SEOCrawlerDashboard() {
                 <TableBody>
                   {regionalMetrics.map((region, index) => (
                     <TableRow key={index}>
-                      <TableCell className="font-medium">
-                        {region.region}
-                      </TableCell>
+                      <TableCell className="font-medium">{region.region}</TableCell>
                       <TableCell>{region.metrics.totalKeywords}</TableCell>
                       <TableCell>{region.metrics.avgPosition}</TableCell>
                       <TableCell>{region.metrics.top10Keywords}</TableCell>
                       <TableCell>{region.metrics.ctr}%</TableCell>
                       <TableCell>
                         <Badge
-                          variant={
-                            region.opportunityScore > 70
-                              ? "default"
-                              : "secondary"
-                          }
+                          variant={region.opportunityScore > 70 ? "default" : "secondary"}
                         >
                           {region.opportunityScore}
                         </Badge>
@@ -576,28 +526,23 @@ export default function SEOCrawlerDashboard() {
                         <Badge variant={getPriorityColor(action.priority)}>
                           {action.priority}
                         </Badge>
-                        <span className="font-medium">
-                          {action.type.replace("_", " ")}
-                        </span>
+                        <span className="font-medium">{action.type.replace('_', ' ')}</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <span className="text-sm text-gray-500">
                           Impact: {action.estimatedImpact}/10
                         </span>
-                        <Progress
-                          value={action.estimatedImpact * 10}
-                          className="w-20 h-2"
-                        />
+                        <Progress value={action.estimatedImpact * 10} className="w-20 h-2" />
                       </div>
                     </div>
-                    <p className="text-sm text-gray-700">
-                      {action.description}
-                    </p>
+                    <p className="text-sm text-gray-700">{action.description}</p>
                     <div className="flex items-center space-x-2">
                       <Button size="sm" variant="outline">
                         Review
                       </Button>
-                      <Button size="sm">Implement</Button>
+                      <Button size="sm">
+                        Implement
+                      </Button>
                     </div>
                   </div>
                 ))}
@@ -640,10 +585,7 @@ export default function SEOCrawlerDashboard() {
             <CardContent>
               <div className="text-center py-8 text-gray-500">
                 <BarChart3 className="w-12 h-12 mx-auto mb-4" />
-                <p>
-                  Competitor analysis data will be available after crawl
-                  completion
-                </p>
+                <p>Competitor analysis data will be available after crawl completion</p>
               </div>
             </CardContent>
           </Card>
@@ -655,8 +597,7 @@ export default function SEOCrawlerDashboard() {
         <Alert>
           <Clock className="h-4 w-4" />
           <AlertDescription>
-            SEO crawler is running... This may take a few minutes to complete
-            regional analysis.
+            SEO crawler is running... This may take a few minutes to complete regional analysis.
           </AlertDescription>
         </Alert>
       )}
