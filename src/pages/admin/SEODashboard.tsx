@@ -17,7 +17,9 @@ import {
   Save,
   RefreshCw,
   BarChart3,
+  Bot,
 } from "lucide-react";
+import SEOCrawlerDashboard from "@/components/seo/SEOCrawlerDashboard";
 import {
   Select,
   SelectContent,
