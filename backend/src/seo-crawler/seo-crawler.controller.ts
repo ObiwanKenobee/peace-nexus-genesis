@@ -241,7 +241,7 @@ export class SEOCrawlerController {
       days: 30,
     });
 
-    const competitors = new Map<string, any>();
+    const competitors = new Map<string, CompetitorAnalysisResult>();
 
     rankings.forEach((ranking) => {
       ranking.competitorAnalysis.forEach((comp) => {
