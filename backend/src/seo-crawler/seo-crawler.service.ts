@@ -36,6 +36,22 @@ export interface CrawlerInsights {
   technicalIssues: string[];
 }
 
+export interface RegionalSEOStrategy {
+  region: string;
+  countries: string[];
+  keywordTargets: string[];
+  contentPriorities: string[];
+  technicalOptimizations: string[];
+  linkBuildingStrategy: string[];
+  localizations: RegionalLocalization;
+}
+
+export interface RegionalLocalization {
+  languages: string[];
+  culturalConsiderations: string[];
+  localPartners: string[];
+}
+
 @Injectable()
 export class SEOCrawlerService {
   private readonly logger = new Logger(SEOCrawlerService.name);
