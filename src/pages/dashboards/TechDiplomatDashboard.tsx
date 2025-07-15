@@ -128,8 +128,12 @@ const web3Integrations = [
 ];
 
 export default function TechDiplomatDashboard() {
-  const { user, earnPeaceCoin } = usePaxisAuth();
+  const { user, earnPeaceCoin, logout } = usePaxisAuth();
   const [selectedTab, setSelectedTab] = useState("overview");
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const handleCreateBounty = () => {
     earnPeaceCoin(100, "Created new development bounty");
