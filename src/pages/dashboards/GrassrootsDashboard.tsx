@@ -23,6 +23,7 @@ import {
   Phone,
   Volume2,
   Languages,
+  LogOut,
 } from "lucide-react";
 
 const communityMetrics = [
