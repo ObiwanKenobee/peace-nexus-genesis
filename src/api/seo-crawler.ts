@@ -82,6 +82,28 @@ export interface CrawlerStats {
   };
 }
 
+export interface CompetitorAnalysisResult {
+  domain: string;
+  avgPosition: number;
+  appearances: number;
+  totalBacklinks: number;
+  competingKeywords: string[];
+}
+
+export interface RegionalStrategy {
+  region: string;
+  countries: string[];
+  keywordTargets: string[];
+  contentPriorities: string[];
+  technicalOptimizations: string[];
+  linkBuildingStrategy: string[];
+  localizations: {
+    languages: string[];
+    culturalConsiderations: string[];
+    localPartners: string[];
+  };
+}
+
 class SEOCrawlerAPI {
   private baseUrl = "/api/seo-crawler";
 
