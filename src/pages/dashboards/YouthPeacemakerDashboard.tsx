@@ -165,7 +165,7 @@ const socialFeed = [
   },
 ];
 
-const leaderboards = [
+const getLeaderboards = (userName?: string) => [
   {
     rank: 1,
     username: "PeaceNinja_2024",
@@ -195,7 +195,7 @@ const leaderboards = [
   },
   {
     rank: 8,
-    username: user?.name || "You",
+    username: userName || "You",
     level: 9,
     xp: 22456,
     badge: "Rising Star",
@@ -465,48 +465,52 @@ export default function YouthPeacemakerDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
-                  {leaderboards.slice(0, 4).map((player) => (
-                    <div
-                      key={player.rank}
-                      className={`flex items-center justify-between p-3 rounded-lg ${
-                        player.isUser
-                          ? "bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-300"
-                          : "bg-gray-50"
-                      }`}
-                    >
-                      <div className="flex items-center space-x-3">
-                        <div
-                          className={`flex items-center justify-center w-8 h-8 rounded-full ${
-                            player.rank === 1
-                              ? "bg-yellow-400 text-white"
-                              : player.rank === 2
-                                ? "bg-gray-400 text-white"
-                                : player.rank === 3
-                                  ? "bg-orange-400 text-white"
-                                  : "bg-blue-100 text-blue-800"
-                          }`}
-                        >
-                          {player.rank <= 3 ? (
-                            <Crown className="w-4 h-4" />
-                          ) : (
-                            player.rank
-                          )}
+                  {getLeaderboards(user?.name)
+                    .slice(0, 4)
+                    .map((player) => (
+                      <div
+                        key={player.rank}
+                        className={`flex items-center justify-between p-3 rounded-lg ${
+                          player.isUser
+                            ? "bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-300"
+                            : "bg-gray-50"
+                        }`}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div
+                            className={`flex items-center justify-center w-8 h-8 rounded-full ${
+                              player.rank === 1
+                                ? "bg-yellow-400 text-white"
+                                : player.rank === 2
+                                  ? "bg-gray-400 text-white"
+                                  : player.rank === 3
+                                    ? "bg-orange-400 text-white"
+                                    : "bg-blue-100 text-blue-800"
+                            }`}
+                          >
+                            {player.rank <= 3 ? (
+                              <Crown className="w-4 h-4" />
+                            ) : (
+                              player.rank
+                            )}
+                          </div>
+                          <div>
+                            <div className="font-medium">{player.username}</div>
+                            <div className="text-sm text-gray-600">
+                              {player.country} • {player.badge}
+                            </div>
+                          </div>
                         </div>
-                        <div>
-                          <div className="font-medium">{player.username}</div>
-                          <div className="text-sm text-gray-600">
-                            {player.country} • {player.badge}
+                        <div className="text-right">
+                          <div className="font-medium">
+                            Level {player.level}
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            {player.xp.toLocaleString()} XP
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="font-medium">Level {player.level}</div>
-                        <div className="text-sm text-gray-500">
-                          {player.xp.toLocaleString()} XP
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </CardContent>
             </Card>
