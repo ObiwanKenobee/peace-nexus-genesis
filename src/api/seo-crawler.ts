@@ -47,7 +47,7 @@ export interface OptimizationAction {
   description: string;
   priority: "high" | "medium" | "low";
   estimatedImpact: number;
-  implementationDetails: any;
+  implementationDetails: Record<string, unknown>;
 }
 
 export interface RegionalMetrics {
@@ -166,7 +166,9 @@ class SEOCrawlerAPI {
     }
   }
 
-  async getCompetitorAnalysis(region?: string): Promise<any> {
+  async getCompetitorAnalysis(
+    region?: string,
+  ): Promise<CompetitorAnalysisResult[]> {
     try {
       const params = region ? `?region=${region}` : "";
       const response = await gateway.get(
@@ -184,7 +186,7 @@ class SEOCrawlerAPI {
     countries: string[];
     keywords: string[];
     timeframe: string;
-  }): Promise<any> {
+  }): Promise<RegionalStrategy> {
     try {
       const response = await gateway.post(
         `${this.baseUrl}/analyze-region`,
@@ -355,7 +357,7 @@ class SEOCrawlerAPI {
     ];
   }
 
-  private getMockCompetitorAnalysis(): any {
+  private getMockCompetitorAnalysis(): CompetitorAnalysisResult[] {
     return [
       {
         domain: "un.org",
@@ -374,7 +376,7 @@ class SEOCrawlerAPI {
     ];
   }
 
-  private getMockRegionalStrategy(): any {
+  private getMockRegionalStrategy(): RegionalStrategy {
     return {
       region: "East Africa",
       countries: ["KE", "UG", "TZ", "SS", "CD", "ET"],
