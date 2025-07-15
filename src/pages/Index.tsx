@@ -99,34 +99,34 @@ const Index = () => {
                 Dashboard
               </button>
               <button
-                onClick={() => handleProtectedNavigation("/commons")}
+                onClick={() => handleProtectedNavigation("/organizations")}
                 className="transition-smooth hover:text-primary cursor-pointer"
               >
-                Commons
+                Organizations
               </button>
               <button
-                onClick={() => handleProtectedNavigation("/mediation")}
+                onClick={() => handleProtectedNavigation("/peace-projects")}
                 className="transition-smooth hover:text-primary cursor-pointer"
               >
-                Mediation
+                Projects
               </button>
               <button
-                onClick={() => handleProtectedNavigation("/education")}
+                onClick={() => handleProtectedNavigation("/peace-network")}
                 className="transition-smooth hover:text-primary cursor-pointer"
               >
-                Education
+                Network
               </button>
               <button
-                onClick={() => handleProtectedNavigation("/governance")}
+                onClick={() => handleProtectedNavigation("/dao-governance")}
                 className="transition-smooth hover:text-primary cursor-pointer"
               >
                 DAO
               </button>
               <button
-                onClick={() => handleProtectedNavigation("/peacecoin")}
+                onClick={() => handleProtectedNavigation("/knowledge")}
                 className="transition-smooth hover:text-primary cursor-pointer"
               >
-                PeaceCoin
+                Knowledge
               </button>
               <Link
                 to="/pricing"
