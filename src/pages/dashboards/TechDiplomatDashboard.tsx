@@ -157,7 +157,7 @@ export default function TechDiplomatDashboard() {
               {user?.organization}
             </p>
           </div>
-          <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-4">
             <Badge className="bg-green-100 text-green-800">
               Level {user?.level} Developer
             </Badge>
@@ -168,6 +168,11 @@ export default function TechDiplomatDashboard() {
               <div className="text-xs text-gray-500">
                 Open Source Score: {user?.contributionScore}
               </div>
+            </div>
+            <Button variant="outline" size="sm" onClick={handleLogout}>
+              <LogOut className="h-4 w-4 mr-2" />
+              Logout
+            </Button>
             </div>
           </div>
         </div>
