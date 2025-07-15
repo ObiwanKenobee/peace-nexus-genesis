@@ -38,6 +38,12 @@ import PeaceArchitectDashboard from "./pages/dashboards/PeaceArchitectDashboard"
 import TechDiplomatDashboard from "./pages/dashboards/TechDiplomatDashboard";
 import GrassrootsDashboard from "./pages/dashboards/GrassrootsDashboard";
 import ConflictAnalystDashboard from "./pages/dashboards/ConflictAnalystDashboard";
+import ArtistCultureWeaverDashboard from "./pages/dashboards/ArtistCultureWeaverDashboard";
+import PeacepreneurDashboard from "./pages/dashboards/PeacepreneurDashboard";
+import YouthPeacemakerDashboard from "./pages/dashboards/YouthPeacemakerDashboard";
+import RefugeeDisplacedDashboard from "./pages/dashboards/RefugeeDisplacedDashboard";
+import FunderValidatorDashboard from "./pages/dashboards/FunderValidatorDashboard";
+import AIPeaceAgentDashboard from "./pages/dashboards/AIPeaceAgentDashboard";
 import Organizations from "./pages/Organizations";
 import PeaceProjects from "./pages/PeaceProjects";
 import UserProfiles from "./pages/UserProfiles";
@@ -182,6 +188,54 @@ const App = () => (
                 element={
                   <ProtectedPaxisRoute requiredArchetype="conflict_analyst">
                     <ConflictAnalystDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/artist"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="artist_culture_weaver">
+                    <ArtistCultureWeaverDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/peacepreneur"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="peacepreneur">
+                    <PeacepreneurDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/youth"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="youth_peacemaker">
+                    <YouthPeacemakerDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/refugee"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="refugee_displaced">
+                    <RefugeeDisplacedDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/funder"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="funder_validator">
+                    <FunderValidatorDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/ai-agent"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="ai_peace_agent">
+                    <AIPeaceAgentDashboard />
                   </ProtectedPaxisRoute>
                 }
               />
