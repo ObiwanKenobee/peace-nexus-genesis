@@ -69,7 +69,7 @@ import {
   Lock,
   Unlock,
   Network,
-  VrHeadset,
+  Headphones,
 } from "lucide-react";
 import { usePaxisAuth } from "@/contexts/PaxisAuthContext";
 
