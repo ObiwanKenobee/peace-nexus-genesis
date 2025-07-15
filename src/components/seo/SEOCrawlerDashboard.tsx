@@ -145,29 +145,12 @@ export default function SEOCrawlerDashboard() {
   };
 
   const loadCrawlerStats = async () => {
-    // Simulate API call
-    const mockStats: CrawlerStats = {
-      totalKeywords: 127,
-      avgPosition: 23.4,
-      topPerformingRegions: [
-        { region: "Global", avgPosition: 18.2, keywordCount: 45 },
-        { region: "East Africa", avgPosition: 28.7, keywordCount: 32 },
-        { region: "Middle East", avgPosition: 31.5, keywordCount: 25 },
-        { region: "South Asia", avgPosition: 35.8, keywordCount: 25 },
-      ],
-      improvementOpportunities: [
-        "15 keywords on page 2-3 could be optimized to reach page 1",
-        "Focus on improving rankings in: Middle East, South Asia",
-        "Study un.org strategy - appears in top 5 for 12 keywords",
-      ],
-      recentTrends: {
-        direction: "improving",
-        percentage: "12.3",
-        recentAvgPosition: "21.8",
-        previousAvgPosition: "24.6",
-      },
-    };
-    setCrawlerStats(mockStats);
+    try {
+      const stats = await seoCrawlerAPI.getPerformanceSummary();
+      setCrawlerStats(stats);
+    } catch (error) {
+      console.error("Failed to load crawler stats:", error);
+    }
   };
 
   const loadRankings = async () => {
