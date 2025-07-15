@@ -188,63 +188,57 @@ export default function SEOCrawlerDashboard() {
   };
 
   const loadOptimizationActions = async () => {
-    const mockActions: OptimizationAction[] = [
-      {
-        type: "content_suggestion",
-        target: "conflict resolution AI",
-        description:
-          'Improve content for "conflict resolution AI" - currently #15, competitor un.org ranks #3',
-        priority: "high",
-        estimatedImpact: 8,
-        implementationDetails: {
-          currentPosition: 15,
-          targetPosition: 3,
-          suggestions: [
-            "Expand content depth and comprehensiveness",
-            "Add more relevant internal links",
-            "Improve content structure with better headers",
-          ],
-        },
-      },
-      {
-        type: "regional_focus",
-        target: "Middle East",
-        description: "Focus SEO efforts on Middle East - avg position 31.5",
-        priority: "high",
-        estimatedImpact: 9,
-        implementationDetails: {
-          quickWins: [
-            "Create region-specific landing pages",
-            "Add local language content",
-            "Build regional backlink profile",
-          ],
-        },
-      },
-      {
-        type: "meta_update",
-        target: "blockchain for peace",
-        description: 'Improve CTR for "blockchain for peace" at position 24',
-        priority: "medium",
-        estimatedImpact: 5,
-        implementationDetails: {
-          optimizations: [
-            "Write more compelling meta titles",
-            "Improve meta descriptions with clear value propositions",
-            "Add power words and emotional triggers",
-          ],
-        },
-      },
-    ];
-    setOptimizationActions(mockActions);
+    try {
+      const insights = await seoCrawlerAPI.getInsights({
+        region: selectedRegion === "all" ? undefined : selectedRegion,
+        days: parseInt(selectedTimeframe),
+      });
+
+      // Convert insights to optimization actions format
+      const actions: OptimizationAction[] = [
+        ...insights.optimizationOpportunities.map((opp, index) => ({
+          type: "content_suggestion" as const,
+          target: `optimization-${index}`,
+          description: opp,
+          priority: "high" as const,
+          estimatedImpact: 8,
+          implementationDetails: { suggestion: opp },
+        })),
+        ...insights.contentSuggestions.map((suggestion, index) => ({
+          type: "content_suggestion" as const,
+          target: `content-${index}`,
+          description: suggestion,
+          priority: "medium" as const,
+          estimatedImpact: 6,
+          implementationDetails: { suggestion },
+        })),
+        ...insights.technicalIssues.map((issue, index) => ({
+          type: "technical_fix" as const,
+          target: `technical-${index}`,
+          description: issue,
+          priority: "medium" as const,
+          estimatedImpact: 5,
+          implementationDetails: { issue },
+        })),
+      ];
+
+      setOptimizationActions(actions);
+    } catch (error) {
+      console.error("Failed to load optimization actions:", error);
+    }
   };
 
   const startCrawl = async () => {
     setCrawlerRunning(true);
-    // Simulate crawl process
-    setTimeout(() => {
+    try {
+      const targets = await seoCrawlerAPI.getDefaultTargets();
+      await seoCrawlerAPI.startCrawl(targets);
+      await loadDashboardData();
+    } catch (error) {
+      console.error("Crawl failed:", error);
+    } finally {
       setCrawlerRunning(false);
-      loadDashboardData();
-    }, 5000);
+    }
   };
 
   const getTrendIcon = (trend: string) => {
