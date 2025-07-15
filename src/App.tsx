@@ -49,6 +49,7 @@ import PeaceProjects from "./pages/PeaceProjects";
 import UserProfiles from "./pages/UserProfiles";
 import DAOGovernance from "./pages/DAOGovernance";
 import PeaceKnowledgebase from "./pages/PeaceKnowledgebase";
+import WildlifePeace from "./pages/WildlifePeace";
 import { PaxisAuthProvider } from "./contexts/PaxisAuthContext";
 import ProtectedPaxisRoute from "./components/ProtectedPaxisRoute";
 
@@ -145,6 +146,14 @@ const App = () => (
                 element={
                   <ProtectedPaxisRoute>
                     <PeaceKnowledgebase />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/wildlife-peace"
+                element={
+                  <ProtectedPaxisRoute>
+                    <WildlifePeace />
                   </ProtectedPaxisRoute>
                 }
               />
