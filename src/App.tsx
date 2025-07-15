@@ -16,6 +16,36 @@ import VRLabs from "./pages/VRLabs";
 import AIAgents from "./pages/AIAgents";
 import NotFound from "./pages/NotFound";
 
+// Admin components
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import SEODashboard from "./pages/admin/SEODashboard";
+import PlatformManagement from "./pages/admin/PlatformManagement";
+import GlobalSettings from "./pages/admin/GlobalSettings";
+import UserManagement from "./pages/admin/UserManagement";
+import Analytics from "./pages/admin/Analytics";
+import SecurityManagement from "./pages/admin/SecurityManagement";
+import AdminLogin from "./pages/admin/AdminLogin";
+import ProtectedAdminRoute from "./components/admin/ProtectedAdminRoute";
+import { AdminAuthProvider } from "./contexts/AdminAuthContext";
+
+// PAXIS User System
+import PaxisLogin from "./pages/PaxisLogin";
+import DashboardRouter from "./pages/DashboardRouter";
+import Archetypes from "./pages/Archetypes";
+import Pricing from "./pages/Pricing";
+import PeaceArchitectDashboard from "./pages/dashboards/PeaceArchitectDashboard";
+import TechDiplomatDashboard from "./pages/dashboards/TechDiplomatDashboard";
+import GrassrootsDashboard from "./pages/dashboards/GrassrootsDashboard";
+import ConflictAnalystDashboard from "./pages/dashboards/ConflictAnalystDashboard";
+import Organizations from "./pages/Organizations";
+import PeaceProjects from "./pages/PeaceProjects";
+import UserProfiles from "./pages/UserProfiles";
+import DAOGovernance from "./pages/DAOGovernance";
+import PeaceKnowledgebase from "./pages/PeaceKnowledgebase";
+import { PaxisAuthProvider } from "./contexts/PaxisAuthContext";
+import ProtectedPaxisRoute from "./components/ProtectedPaxisRoute";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -24,21 +54,192 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/commons" element={<Commons />} />
-          <Route path="/mediation" element={<Mediation />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/governance" element={<Governance />} />
-          <Route path="/peacecoin" element={<PeaceCoin />} />
-          <Route path="/security" element={<Security />} />
-          <Route path="/pilot" element={<Pilot />} />
-          <Route path="/vr-labs" element={<VRLabs />} />
-          <Route path="/ai-agents" element={<AIAgents />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AdminAuthProvider>
+          <PaxisAuthProvider>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/dashboard" element={<DashboardRouter />} />
+              <Route
+                path="/commons"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Commons />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/mediation"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Mediation />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/education"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Education />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/governance"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Governance />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/peacecoin"
+                element={
+                  <ProtectedPaxisRoute>
+                    <PeaceCoin />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route path="/security" element={<Security />} />
+
+              {/* Enterprise CRUD Pages - Protected */}
+              <Route
+                path="/organizations"
+                element={
+                  <ProtectedPaxisRoute>
+                    <Organizations />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/peace-projects"
+                element={
+                  <ProtectedPaxisRoute>
+                    <PeaceProjects />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/peace-network"
+                element={
+                  <ProtectedPaxisRoute>
+                    <UserProfiles />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dao-governance"
+                element={
+                  <ProtectedPaxisRoute>
+                    <DAOGovernance />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/knowledge"
+                element={
+                  <ProtectedPaxisRoute>
+                    <PeaceKnowledgebase />
+                  </ProtectedPaxisRoute>
+                }
+              />
+
+              <Route path="/pilot" element={<Pilot />} />
+              <Route path="/vr-labs" element={<VRLabs />} />
+              <Route path="/ai-agents" element={<AIAgents />} />
+
+              {/* PAXIS User Authentication */}
+              <Route path="/login" element={<PaxisLogin />} />
+              <Route path="/archetypes" element={<Archetypes />} />
+              <Route path="/pricing" element={<Pricing />} />
+
+              {/* Archetype-specific dashboards */}
+              <Route
+                path="/dashboard/peace-architect"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="peace_architect">
+                    <PeaceArchitectDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/tech-diplomat"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="tech_diplomat">
+                    <TechDiplomatDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/grassroots"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="grassroots_peacebuilder">
+                    <GrassrootsDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+              <Route
+                path="/dashboard/analyst"
+                element={
+                  <ProtectedPaxisRoute requiredArchetype="conflict_analyst">
+                    <ConflictAnalystDashboard />
+                  </ProtectedPaxisRoute>
+                }
+              />
+
+              {/* Admin Login Route */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+
+              {/* Protected Admin Routes */}
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedAdminRoute>
+                    <AdminLayout />
+                  </ProtectedAdminRoute>
+                }
+              >
+                <Route index element={<AdminDashboard />} />
+                <Route path="platform" element={<PlatformManagement />} />
+                <Route
+                  path="seo"
+                  element={
+                    <ProtectedAdminRoute requiredPermission="seo_management">
+                      <SEODashboard />
+                    </ProtectedAdminRoute>
+                  }
+                />
+                <Route
+                  path="users"
+                  element={
+                    <ProtectedAdminRoute requiredPermission="user_management">
+                      <UserManagement />
+                    </ProtectedAdminRoute>
+                  }
+                />
+                <Route
+                  path="analytics"
+                  element={
+                    <ProtectedAdminRoute requiredPermission="analytics_read">
+                      <Analytics />
+                    </ProtectedAdminRoute>
+                  }
+                />
+                <Route path="global" element={<GlobalSettings />} />
+                <Route
+                  path="security"
+                  element={
+                    <ProtectedAdminRoute requiredPermission="security_management">
+                      <SecurityManagement />
+                    </ProtectedAdminRoute>
+                  }
+                />
+              </Route>
+
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </PaxisAuthProvider>
+        </AdminAuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -8,9 +8,21 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Globe, Shield, Zap, Users, Brain, Heart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AdminAccess from "@/components/AdminAccess";
+import { usePaxisAuth } from "@/contexts/PaxisAuthContext";
 
 const Index = () => {
+  const { user } = usePaxisAuth();
+  const navigate = useNavigate();
+
+  const handleProtectedNavigation = (path: string) => {
+    if (!user) {
+      navigate("/login");
+    } else {
+      navigate(path);
+    }
+  };
   const features = [
     {
       icon: Shield,
@@ -80,41 +92,47 @@ const Index = () => {
           </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <nav className="flex items-center space-x-6">
-              <Link
-                to="/dashboard"
-                className="transition-smooth hover:text-primary"
+              <button
+                onClick={() => handleProtectedNavigation("/dashboard")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
                 Dashboard
-              </Link>
-              <Link
-                to="/commons"
-                className="transition-smooth hover:text-primary"
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/organizations")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
-                Commons
-              </Link>
-              <Link
-                to="/mediation"
-                className="transition-smooth hover:text-primary"
+                Organizations
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/peace-projects")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
-                Mediation
-              </Link>
-              <Link
-                to="/education"
-                className="transition-smooth hover:text-primary"
+                Projects
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/peace-network")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
-                Education
-              </Link>
-              <Link
-                to="/governance"
-                className="transition-smooth hover:text-primary"
+                Network
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/dao-governance")}
+                className="transition-smooth hover:text-primary cursor-pointer"
               >
                 DAO
-              </Link>
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/knowledge")}
+                className="transition-smooth hover:text-primary cursor-pointer"
+              >
+                Knowledge
+              </button>
               <Link
-                to="/peacecoin"
+                to="/pricing"
                 className="transition-smooth hover:text-primary"
               >
-                PeaceCoin
+                Pricing
               </Link>
             </nav>
             <Button className="peace-gradient peace-glow transition-smooth hover:scale-105">
@@ -144,9 +162,9 @@ const Index = () => {
               <Button
                 size="lg"
                 className="peace-gradient peace-glow transition-smooth hover:scale-105"
-                asChild
+                onClick={() => handleProtectedNavigation("/dashboard")}
               >
-                <Link to="/dashboard">Explore Dashboard</Link>
+                Explore Dashboard
               </Button>
               <Button
                 size="lg"
@@ -278,17 +296,17 @@ const Index = () => {
               <Button
                 size="lg"
                 className="peace-gradient peace-glow transition-smooth hover:scale-105"
-                asChild
+                onClick={() => handleProtectedNavigation("/governance")}
               >
-                <Link to="/governance">Join DAO</Link>
+                Join DAO
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="transition-smooth hover:scale-105"
-                asChild
+                onClick={() => handleProtectedNavigation("/education")}
               >
-                <Link to="/education">Start Learning</Link>
+                Start Learning
               </Button>
             </div>
           </div>
@@ -315,44 +333,44 @@ const Index = () => {
               <h3 className="font-semibold mb-4">Platform</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link
-                    to="/dashboard"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/dashboard")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     Dashboard
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    to="/commons"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/organizations")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
-                    Resource Commons
-                  </Link>
+                    Organizations
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    to="/mediation"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/peace-projects")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
-                    Mediation
-                  </Link>
+                    Peace Projects
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    to="/education"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/peace-network")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
-                    Education
-                  </Link>
+                    Peace Network
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    to="/peacecoin"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/knowledge")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
-                    PeaceCoin
-                  </Link>
+                    Knowledge Base
+                  </button>
                 </li>
               </ul>
             </div>
@@ -360,12 +378,12 @@ const Index = () => {
               <h3 className="font-semibold mb-4">Community</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link
-                    to="/governance"
-                    className="text-muted-foreground hover:text-primary"
+                  <button
+                    onClick={() => handleProtectedNavigation("/dao-governance")}
+                    className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     DAO Governance
-                  </Link>
+                  </button>
                 </li>
                 <li>
                   <a
@@ -439,6 +457,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Admin Access */}
+      <AdminAccess />
     </div>
   );
 };

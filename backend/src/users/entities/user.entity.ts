@@ -102,6 +102,14 @@ export class User {
   @Column("text", { array: true, default: [] })
   roles: string[];
 
+  @Field({ defaultValue: "free" })
+  @Column({ default: "free" })
+  tier: string;
+
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  tierUpdatedAt?: Date;
+
   @Field({ nullable: true })
   @Column({ nullable: true })
   lastLogin?: Date;
@@ -127,4 +135,8 @@ export class User {
   @Field(() => [PeaceCoinTransaction], { nullable: true })
   @OneToMany(() => PeaceCoinTransaction, (transaction) => transaction.user)
   peaceCoinTransactions?: PeaceCoinTransaction[];
+
+  // Payment relationships will be added when Payment entities are imported
+  payments?: any[];
+  subscriptions?: any[];
 }
