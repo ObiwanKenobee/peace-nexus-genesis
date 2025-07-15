@@ -1066,7 +1066,7 @@ function UserProfileCard({
         <div className="space-y-1">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center space-x-2">
-              <VrHeadset className="h-4 w-4 text-muted-foreground" />
+              <Headphones className="h-4 w-4 text-muted-foreground" />
               <span>VR Empathy</span>
             </div>
             <span className="font-medium">
