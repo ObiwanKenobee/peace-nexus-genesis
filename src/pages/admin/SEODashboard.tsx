@@ -197,11 +197,12 @@ export default function SEODashboard() {
       </div>
 
       <Tabs defaultValue="meta-tags" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-5">
+        <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="meta-tags">Meta Tags</TabsTrigger>
           <TabsTrigger value="keywords">Keywords</TabsTrigger>
           <TabsTrigger value="geo-targeting">Geo-Targeting</TabsTrigger>
           <TabsTrigger value="structured-data">Schema.org</TabsTrigger>
+          <TabsTrigger value="crawler">Crawler Engine</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
         </TabsList>
 
