@@ -128,6 +128,12 @@ const Index = () => {
               >
                 Knowledge
               </button>
+              <button
+                onClick={() => handleProtectedNavigation("/wildlife-peace")}
+                className="transition-smooth hover:text-primary cursor-pointer"
+              >
+                Wildlife Peace
+              </button>
               <Link
                 to="/pricing"
                 className="transition-smooth hover:text-primary"
