@@ -155,7 +155,9 @@ export class SEOCrawlerController {
   }
 
   @Post("analyze-region")
-  async analyzeRegion(@Body() analysis: RegionalAnalysisDto): Promise<any> {
+  async analyzeRegion(
+    @Body() analysis: RegionalAnalysisDto,
+  ): Promise<RegionalStrategy> {
     this.logger.log(`Analyzing region: ${analysis.region}`);
 
     const strategy = await this.crawlerService.generateRegionalSEOStrategy(
@@ -167,7 +169,7 @@ export class SEOCrawlerController {
   }
 
   @Get("performance-summary")
-  async getPerformanceSummary(): Promise<any> {
+  async getPerformanceSummary(): Promise<PerformanceSummary> {
     const rankings = await this.analyticsService.getRankingHistory({
       days: 30,
     });
@@ -188,7 +190,9 @@ export class SEOCrawlerController {
   }
 
   @Get("competitor-analysis")
-  async getCompetitorAnalysis(@Query("region") region?: string): Promise<any> {
+  async getCompetitorAnalysis(
+    @Query("region") region?: string,
+  ): Promise<CompetitorAnalysisResult[]> {
     const rankings = await this.analyticsService.getRankingHistory({
       region,
       days: 30,
@@ -223,7 +227,7 @@ export class SEOCrawlerController {
       .slice(0, 10);
   }
 
-  private getTopPerformingRegions(rankings: RankingData[]): any[] {
+  private getTopPerformingRegions(rankings: RankingData[]): TopRegion[] {
     const regionPerformance = new Map<
       string,
       { totalPosition: number; count: number }
@@ -249,9 +253,7 @@ export class SEOCrawlerController {
       .slice(0, 5);
   }
 
-  private async getImprovementOpportunities(
-    rankings: RankingData[],
-  ): Promise<string[]> {
+  private getImprovementOpportunities(rankings: RankingData[]): string[] {
     const opportunities: string[] = [];
 
     // Find keywords ranking 11-30 (page 2-3)
@@ -298,7 +300,7 @@ export class SEOCrawlerController {
     return opportunities;
   }
 
-  private getRecentTrends(rankings: RankingData[]): any {
+  private getRecentTrends(rankings: RankingData[]): TrendAnalysis {
     const now = new Date();
     const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 
