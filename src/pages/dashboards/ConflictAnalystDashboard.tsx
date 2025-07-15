@@ -477,7 +477,7 @@ export default function ConflictAnalystDashboard() {
                     <CardContent>
                       <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
                         <div className="text-center">
-                          <Timeline className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                          <Calendar className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                           <p className="text-muted-foreground">
                             Temporal pattern analysis
                           </p>
