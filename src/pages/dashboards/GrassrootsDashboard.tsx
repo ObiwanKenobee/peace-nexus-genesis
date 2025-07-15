@@ -189,6 +189,10 @@ export default function GrassrootsDashboard() {
                 Community Impact: {user?.contributionScore}
               </div>
             </div>
+            <Button variant="outline" size="sm" onClick={handleLogout}>
+              <LogOut className="h-4 w-4 mr-2" />
+              Logout
+            </Button>
           </div>
         </div>
       </div>
