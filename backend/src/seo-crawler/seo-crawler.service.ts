@@ -225,7 +225,7 @@ export class SEOCrawlerService {
   async generateRegionalSEOStrategy(
     region: string,
     countries: string[],
-  ): Promise<any> {
+  ): Promise<RegionalSEOStrategy> {
     const strategy = {
       region,
       countries,
@@ -330,7 +330,7 @@ export class SEOCrawlerService {
     return strategies[region] || [];
   }
 
-  private getRegionalLocalizations(region: string): any {
+  private getRegionalLocalizations(region: string): RegionalLocalization {
     const localizationMap: Record<string, any> = {
       "East Africa": {
         languages: ["Swahili", "Amharic", "Arabic", "French"],
