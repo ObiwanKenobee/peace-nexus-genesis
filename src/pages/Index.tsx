@@ -379,7 +379,7 @@ const Index = () => {
               <ul className="space-y-2 text-sm">
                 <li>
                   <button
-                    onClick={() => handleProtectedNavigation("/governance")}
+                    onClick={() => handleProtectedNavigation("/dao-governance")}
                     className="text-muted-foreground hover:text-primary cursor-pointer"
                   >
                     DAO Governance
