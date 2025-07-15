@@ -7,7 +7,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Globe, Shield, Zap, Users, Brain, Heart } from "lucide-react";
+import {
+  Globe,
+  Shield,
+  Zap,
+  Users,
+  Brain,
+  Heart,
+  TreePine,
+} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import AdminAccess from "@/components/AdminAccess";
 import { usePaxisAuth } from "@/contexts/PaxisAuthContext";
@@ -65,6 +73,13 @@ const Index = () => {
       description:
         "Blockchain-based incentives for peaceful actions and cooperation",
       color: "text-accent",
+    },
+    {
+      icon: TreePine,
+      title: "Wildlife Peace",
+      description:
+        "Sacred covenant with creation - protecting wildlife through divine integration and AI-powered conservation",
+      color: "text-primary",
     },
   ];
 
@@ -127,6 +142,12 @@ const Index = () => {
                 className="transition-smooth hover:text-primary cursor-pointer"
               >
                 Knowledge
+              </button>
+              <button
+                onClick={() => handleProtectedNavigation("/wildlife-peace")}
+                className="transition-smooth hover:text-primary cursor-pointer"
+              >
+                Wildlife Peace
               </button>
               <Link
                 to="/pricing"
