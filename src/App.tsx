@@ -167,8 +167,13 @@ const App = () => (
 
               {/* PAXIS User Authentication */}
               <Route path="/login" element={<PaxisLogin />} />
+              <Route path="/onboarding" element={<Onboarding />} />
               <Route path="/archetypes" element={<Archetypes />} />
               <Route path="/pricing" element={<Pricing />} />
+
+              {/* Legal Pages */}
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
 
               {/* Archetype-specific dashboards */}
               <Route
