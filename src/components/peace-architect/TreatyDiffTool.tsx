@@ -366,7 +366,9 @@ export const TreatyDiffTool: React.FC<TreatyDiffToolProps> = ({
                 <Label className="text-sm">Filter:</Label>
                 <Select
                   value={filterBy}
-                  onValueChange={(value: any) => setFilterBy(value)}
+                  onValueChange={(value: "all" | "changes-only") =>
+                    setFilterBy(value)
+                  }
                 >
                   <SelectTrigger className="w-32">
                     <SelectValue />
