@@ -15,6 +15,9 @@ import Pilot from "./pages/Pilot";
 import VRLabs from "./pages/VRLabs";
 import AIAgents from "./pages/AIAgents";
 import NotFound from "./pages/NotFound";
+import Onboarding from "./pages/Onboarding";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 // Admin components
 import AdminLayout from "./components/admin/AdminLayout";
