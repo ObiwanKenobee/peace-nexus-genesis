@@ -158,8 +158,8 @@ export const TrendChart: React.FC<TrendChartProps> = ({
 
   const filteredData = useMemo(() => {
     // In a real app, this would filter based on timeRange
-    return data;
-  }, [data, timeRange]);
+    return data.slice(); // Use timeRange for actual filtering
+  }, [data]);
 
   const renderChart = () => {
     const commonProps = {
