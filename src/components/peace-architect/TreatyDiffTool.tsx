@@ -348,7 +348,9 @@ export const TreatyDiffTool: React.FC<TreatyDiffToolProps> = ({
                 <Label className="text-sm">View:</Label>
                 <Select
                   value={viewMode}
-                  onValueChange={(value: any) => setViewMode(value)}
+                  onValueChange={(value: "side-by-side" | "unified") =>
+                    setViewMode(value)
+                  }
                 >
                   <SelectTrigger className="w-32">
                     <SelectValue />
