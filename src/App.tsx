@@ -15,6 +15,9 @@ import Pilot from "./pages/Pilot";
 import VRLabs from "./pages/VRLabs";
 import AIAgents from "./pages/AIAgents";
 import NotFound from "./pages/NotFound";
+import Onboarding from "./pages/Onboarding";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 // Admin components
 import AdminLayout from "./components/admin/AdminLayout";
@@ -164,8 +167,13 @@ const App = () => (
 
               {/* PAXIS User Authentication */}
               <Route path="/login" element={<PaxisLogin />} />
+              <Route path="/onboarding" element={<Onboarding />} />
               <Route path="/archetypes" element={<Archetypes />} />
               <Route path="/pricing" element={<Pricing />} />
+
+              {/* Legal Pages */}
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
 
               {/* Archetype-specific dashboards */}
               <Route
