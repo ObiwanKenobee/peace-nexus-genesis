@@ -90,6 +90,8 @@ import {
   Award,
   Crown,
   Handshake,
+  User,
+  X,
 } from "lucide-react";
 
 // Enhanced data structures for enterprise features
